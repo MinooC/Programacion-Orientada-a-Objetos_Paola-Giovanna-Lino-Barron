@@ -8,7 +8,6 @@ import java.util.Scanner;
  * Esta clase sirve para que el usuario interactue con la interfaz, ingresando sus datos (peso y estatura)
  * dependiendo del cálculo que necesite realizar.
  **/
-
 public class CLI
 {
     public static void main(String[] args)
@@ -27,7 +26,9 @@ public class CLI
         System.out.println("C) Cálculo de metabolismo basal (gasto energético basal).");
         System.out.println("D) Salir.");
     }
-
+    /**
+     * Este método es el que permitirá ver al usuario los resultados en base al cálculo que eligió en el menú.
+     **/
     public static void launchApp()
     {
         Scanner scanner = new Scanner(System.in);
@@ -35,7 +36,11 @@ public class CLI
         {
             showMenu();
             String opcion = scanner.nextLine();
-
+            /**
+             * Dependiendo de la operación solicitada, el programa se dirigirá automáticamente al método donde se encuentran
+             ** las operaciones necesarias y hará los cálculos correspondientes. Finalmente, mostrándole
+             * el resultado en pantalla.
+             **/
             switch (opcion.toUpperCase())
             {
                 case "A":

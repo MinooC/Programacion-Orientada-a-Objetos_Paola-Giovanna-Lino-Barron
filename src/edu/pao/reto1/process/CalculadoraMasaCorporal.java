@@ -79,12 +79,10 @@ public class CalculadoraMasaCorporal
 
         System.out.println("Ingrese el sexo (hombre o mujer): ");
         String sexo = scanner.next().toLowerCase();
-
         /**
          * Dependiendo del sexo que ingrese el usuario se realizarán los cálculos correspondientes
          * para cada circunstancia.
          **/
-
         if ("mujer".equals(sexo))
         {
             masaMagra = (1.07 * peso) - 148 * (peso*peso) / (estatura*estatura);
@@ -98,7 +96,6 @@ public class CalculadoraMasaCorporal
             System.out.println("Opción no válida.");
         }
         return masaMagra;
-
         /**
          * Por último, en la clase CLI se muestra en pantalla el resultado.
          **/
@@ -127,7 +124,6 @@ public class CalculadoraMasaCorporal
          * Dependiendo del sexo que ingrese el usuario se realizarán los cálculos correspondientes
          * para cada circunstancia.
          **/
-
         if ("mujer".equals(sexo))
         {
             metabolismoBasal = 655.1 + (9.563 * peso) + (1.85 * estatura) - (4.676 * edad);
