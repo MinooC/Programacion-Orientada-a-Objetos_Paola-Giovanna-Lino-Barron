@@ -10,9 +10,6 @@ public class CalculadoraMasaCorporal
     /**
      * Este método sirve para calcular el índice de masa corporal de una persona con base en su peso
      * y su estatura.
-     * @param estatura del paciente en centímetros
-     * @param peso del paciente en kilogramos
-     * @param return índice de masa corporal
      **/
     public static double calcularIndiceDeMasaCorporal()
     {
