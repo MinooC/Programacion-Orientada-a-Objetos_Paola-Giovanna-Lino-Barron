@@ -35,7 +35,6 @@ public class CLI
         {
             showMenu();
             String opcion = scanner.nextLine();
-
             /**
              * Dependiendo de la operación solicitada, el programa se dirigirá automáticamente al método donde se encuentran
              * las operaciones necesarias y hará los cálculos correspondientes. Finalmente, mostrándole
