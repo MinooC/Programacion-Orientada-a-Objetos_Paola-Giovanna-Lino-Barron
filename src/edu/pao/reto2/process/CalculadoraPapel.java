@@ -20,7 +20,10 @@ public class CalculadoraPapel
         this.egresosCompras = 0;
         this.montoCaja = 0;
     }
-
+    /**
+     * Se realiza la operación de compra de cajas.
+     * @param scanner Scanner utilizado para la entrada de datos.
+     **/
     public void comprarCajas(Scanner scanner)
     {
         System.out.print("Ingrese el número de cajas a comprar: ");
@@ -36,6 +39,10 @@ public class CalculadoraPapel
 
         System.out.println("La compra realizada por " + cantidad + " cajas al costo " + costo + " es igual a " + monto);
     }
+    /**
+     * Realiza la operación de venta de cajas.
+     * @param scanner Scanner utilizado para la entrada de datos.
+     **/
     public void venderCajas(Scanner scanner)
     {
         System.out.print("Ingrese el número de cajas a vender: ");
@@ -51,7 +58,9 @@ public class CalculadoraPapel
 
         System.out.println("La venta realizada por " + cantidad + " cajas al precio de " + precio + " es igual a " + monto);
     }
-
+    /**
+     * Muestra un informe detallado de las operaciones realizadas.
+     */
     public void mostrarReporte()
     {
         System.out.println("Cantidad total de ventas: " + cantidadVentas);
@@ -60,7 +69,9 @@ public class CalculadoraPapel
         System.out.println("Egresos generados por compras: " + egresosCompras);
         System.out.println("Monto en la caja: " + montoCaja);
     }
-
+    /**
+     * Muestra un resumen de las operaciones realizadas.
+     */
     public void mostrarResumen()
     {
         System.out.println("\nResumen de movimientos:");

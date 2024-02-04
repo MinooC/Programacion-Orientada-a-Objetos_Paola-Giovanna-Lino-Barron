@@ -44,14 +44,17 @@ public class CLI
             {
                 case "A":
                     calculadora.comprarCajas(scanner);
+
                     break;
 
                 case "B":
                     calculadora.venderCajas(scanner);
+
                     break;
 
                 case "C":
                     calculadora.mostrarReporte();
+
                     break;
 
                 case "D":
