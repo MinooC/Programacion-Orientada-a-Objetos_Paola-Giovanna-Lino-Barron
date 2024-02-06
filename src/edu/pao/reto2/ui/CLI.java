@@ -23,9 +23,7 @@ public class CLI
         System.out.println("C) Mostrar reporte.");
         System.out.println("D) Salir.");
 
-        System.out.println("Seleccione  una opción para continuar.");
     }
-
     public static void launchApp()
     {
         Scanner scanner = new Scanner(System.in);
@@ -35,9 +33,8 @@ public class CLI
         {
             showMenu();
             String opcion = scanner.nextLine();
-
             /**
-             * Dependiendo de la operación solicitada, el programa se dirigirá automáticamente al método donde se encuentran
+             * Dependiendo de la opción solicitada, el programa se dirigirá automáticamente al método donde se encuentran
              * las operaciones necesarias y hará los cálculos correspondientes. Finalmente, mostrándole
              * el resultado en pantalla.
              **/
@@ -45,14 +42,17 @@ public class CLI
             {
                 case "A":
                     calculadora.comprarCajas(scanner);
+
                     break;
 
                 case "B":
                     calculadora.venderCajas(scanner);
+
                     break;
 
                 case "C":
                     calculadora.mostrarReporte();
+
                     break;
 
                 case "D":
@@ -67,4 +67,3 @@ public class CLI
         }
     }
 }
-
