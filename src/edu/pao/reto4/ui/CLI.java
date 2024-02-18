@@ -17,7 +17,6 @@ public class CLI
         CLI cli = new CLI();
         cli.launchApp();
     }
-
     public static void showMenu()
     {
         System.out.println("Menú:");
@@ -26,7 +25,6 @@ public class CLI
         System.out.println("B) Mostrar datos de la lista de ventas.");
         System.out.println("S) Finalizar programa");
     }
-
     public void launchApp()
     {
         Scanner scanner = new Scanner(System.in);

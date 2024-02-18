@@ -1,5 +1,4 @@
 package edu.pao.reto4.data;
-
 public class Boleto
 {
     private String comprador;

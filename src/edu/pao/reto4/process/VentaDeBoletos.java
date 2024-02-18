@@ -31,7 +31,6 @@ public class VentaDeBoletos
             String[] pasajeros = venta.getPasajeros();
             double importeTotal = calcularImporte(cantidadBoletos);
 
-
             System.out.println("Comprador: " + comprador);
             System.out.println("Cantidad de boletos: " + cantidadBoletos);
             System.out.println("Pasajeros adicionales:");
