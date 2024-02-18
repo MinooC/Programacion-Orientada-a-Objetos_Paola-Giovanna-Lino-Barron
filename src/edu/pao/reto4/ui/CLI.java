@@ -4,6 +4,9 @@ import edu.pao.reto4.process.VentaDeBoletos;
 
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para que el usuario interactue con la interfaz, ingresando los datos solicitados
+ **/
 public class CLI
 {
     private VentaDeBoletos proceso;
@@ -17,6 +20,9 @@ public class CLI
         CLI cli = new CLI();
         cli.launchApp();
     }
+    /**
+     * Muestra el menú de opciones.
+     **/
     public static void showMenu()
     {
         System.out.println("Menú:");
@@ -25,6 +31,9 @@ public class CLI
         System.out.println("B) Mostrar datos de la lista de ventas.");
         System.out.println("S) Finalizar programa");
     }
+    /**
+     * Método que ejecuta la lógica principal de la aplicación.
+     **/
     public void launchApp()
     {
         Scanner scanner = new Scanner(System.in);
@@ -58,6 +67,10 @@ public class CLI
             }
         }
     }
+    /**
+     * Realiza la venta de boletos.
+     * @param scanner Objeto Scanner para la entrada de datos.
+     **/
     private void realizarVenta(Scanner scanner)
     {
         System.out.println("Ingrese el nombre del comprador:");
@@ -77,7 +90,12 @@ public class CLI
 
         mostrarTicket(comprador, cantidadBoletos, pasajeros);
     }
-
+    /**
+     * Muestra el ticket de venta.
+     * @param comprador Nombre del comprador.
+     * @param cantidadBoletos Cantidad de boletos vendidos.
+     * @param pasajeros Nombres de los pasajeros adicionales.
+     **/
     private void mostrarTicket(String comprador, int cantidadBoletos, String[] pasajeros)
     {
         System.out.println("\nTicket de venta:");
@@ -97,6 +115,11 @@ public class CLI
             System.out.println("(No se han ingresado pasajeros adicionales)");
         }
     }
+    /**
+     * Calcula el importe total de la venta.
+     * @param cantidadBoletos Cantidad de boletos vendidos.
+     * @return Importe total de la venta.
+     **/
     public static double calcularImporte(int cantidadBoletos)
     {
         return cantidadBoletos * 1250.50;

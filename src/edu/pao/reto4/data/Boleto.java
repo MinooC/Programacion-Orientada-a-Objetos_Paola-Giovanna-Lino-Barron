@@ -1,4 +1,8 @@
 package edu.pao.reto4.data;
+/**
+ * La clase Boleto representa un boleto de venta de la empresa de autobuses turísticos.
+ * Contiene información sobre el comprador, la cantidad de boletos y los pasajeros adicionales.
+ **/
 public class Boleto
 {
     private String comprador;

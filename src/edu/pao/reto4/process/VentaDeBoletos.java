@@ -5,6 +5,10 @@ import edu.pao.reto4.data.Boleto;
 import java.util.ArrayList;
 
 import static edu.pao.reto4.ui.CLI.calcularImporte;
+/**
+ * La clase VentaDeBoletos maneja la venta de boletos de la empresa de autobuses turísticos.
+ * Permite realizar ventas y mostrar los datos de las ventas realizadas.
+ **/
 
 public class VentaDeBoletos
 {
@@ -13,12 +17,17 @@ public class VentaDeBoletos
     public VentaDeBoletos() {
         this.ventas = new ArrayList<>();
     }
-
+/**
+ * Realiza una venta de boletos y la agrega a la lista de ventas.
+ **/
     public void realizarVenta(String comprador, int cantidadBoletos, String[] pasajeros)
     {
         Boleto venta = new Boleto(comprador, cantidadBoletos, pasajeros);
         ventas.add(venta);
     }
+    /**
+     * Muestra los datos de las ventas realizadas, incluyendo detalles de cada venta y el importe total.
+     **/
     public void mostrarDatosVentas()
     {
         int totalPasajeros = 0;
@@ -38,6 +47,9 @@ public class VentaDeBoletos
             {
                 System.out.println("- " + pasajero);
             }
+            /**
+             * Se muestra en pantalla el total.
+             **/
             System.out.println("Importe total de la venta: " + importeTotal);
         }
     }
