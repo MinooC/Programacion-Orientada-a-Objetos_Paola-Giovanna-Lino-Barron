@@ -1,4 +1,5 @@
 package edu.pao.evidencia1.process;
+
 /**
  * La clase Medicamentos representa un medicamento en el catálogo de una empresa farmacéutica.
  * Contiene información sobre el nombre químico, nombre genérico, nombre registrado, precio al público,

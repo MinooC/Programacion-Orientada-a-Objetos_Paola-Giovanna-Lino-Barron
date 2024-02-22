@@ -1,5 +1,4 @@
 package edu.pao.evidencia1;
-
 import edu.pao.evidencia1.ui.CLI;
 
 import java.util.Scanner;

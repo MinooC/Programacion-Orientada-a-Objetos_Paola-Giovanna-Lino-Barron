@@ -16,7 +16,7 @@ public class CLI
         String contraseña;
         String usuario;
         /**
-         * Se ingresa el usuario y la contraseña, en caso de que el campo esté vacío, vuelve a pedir
+         * Se ingresa el usuario y la contraseña, en caso de que el campo esté vacío se vuelve a pedir
          * los datos.
          **/
         do
