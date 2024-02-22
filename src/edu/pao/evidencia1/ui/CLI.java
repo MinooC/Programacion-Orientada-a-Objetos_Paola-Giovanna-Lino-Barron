@@ -1,7 +1,5 @@
 package edu.pao.evidencia1.ui;
-
 import edu.pao.evidencia1.process.Medicamentos;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;

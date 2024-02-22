@@ -1,5 +1,4 @@
 package edu.pao.evidencia1.process;
-
 /**
  * La clase Medicamentos representa un medicamento en el catálogo de una empresa farmacéutica.
  * Contiene información sobre el nombre químico, nombre genérico, nombre registrado, precio al público,
@@ -40,7 +39,7 @@ public class Medicamentos
      * @param precioPublico El precio al público del medicamento.
      * @param precioVenta El precio de venta del medicamento.
      * @param formaFarmaceutica La forma farmacéutica del medicamento.
-     */
+     **/
     public Medicamentos(String nombreQuimico, String nombreGenerico, String nombreRegistrado, double precioPublico, double precioVenta, String formaFarmaceutica)
     {
         this.nombreQuimico = nombreQuimico;
