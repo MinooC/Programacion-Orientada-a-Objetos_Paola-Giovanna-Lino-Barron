@@ -69,7 +69,6 @@ public class Calculadora
         System.out.println("El resultado del módulo es: " + residuo);
         scanner.close();
     }
-
     public static void potencia()
     {
         System.out.print("Ingrese la base: ");
@@ -103,7 +102,6 @@ public class Calculadora
 
         return estimacion;
     }
-
     public static void logaritmo()
     {
         System.out.print("Ingrese el número para calcular su logaritmo natural: ");
