@@ -1,18 +1,19 @@
 package edu.pao.reto8.process;
 import java.util.Scanner;
-
+import java.util.ResourceBundle;
 
 public class Calculadora
 {
     private static Scanner scanner = new Scanner(System.in);
+    private static ResourceBundle messages = ResourceBundle.getBundle("MessageBundle");
     public static void suma()
     {
-        System.out.print("Ingrese el primer número: ");
+        System.out.print(messages.getString("ingresePrimerNumero"));
         int num1 = scanner.nextInt();
-        System.out.print("Ingrese el segundo número: ");
+        System.out.print(messages.getString("ingreseSegundoNumero"));
         int num2 = scanner.nextInt();
         int resultado = num1 + num2;
-        System.out.println("El resultado de la suma es: " + resultado);
+        System.out.println(messages.getString("resultadoSuma") + resultado);
         scanner.close();
     }
     public static void resta()
