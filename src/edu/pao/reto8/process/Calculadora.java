@@ -40,7 +40,8 @@ public class Calculadora
         if (divisor == 0)
         {
             System.out.println(messages.getString("divisionPorCero"));
-        } else {
+        } else
+            {
             int cociente = 0;
             while (dividendo >= divisor)
             {

@@ -1,6 +1,10 @@
 package edu.pao.reto8;
+import edu.pao.reto8.iu.CLI;
 
-import edu.pao.reto8.iu.CLI;package edu.pao.reto8.iu;
+/**
+ * Iniciar la aplicación llamando al método main() de la clase CLI, que a su vez inicia la
+ * interfaz.
+ **/
 
 public class MainReto8
 {

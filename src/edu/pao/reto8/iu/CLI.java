@@ -5,6 +5,11 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+/**
+ * Esta clase sirve para que el usuario interactue con la interfaz, escogiendo su idioma en el que la
+ * interfaz estará.
+ **/
+
 public class CLI
 {
     private static ResourceBundle messages;
@@ -60,7 +65,7 @@ public class CLI
                 Calculadora.logaritmo();
                 break;
             default:
-                System.out.println(messages.getString("invalidChoice"));
+                System.out.println(messages.getString("opcionInvalida"));
                 break;
         }
         scanner.close();
