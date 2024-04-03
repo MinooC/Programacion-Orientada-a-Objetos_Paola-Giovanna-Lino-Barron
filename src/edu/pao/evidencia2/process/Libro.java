@@ -28,4 +28,3 @@ public class Libro extends Articulos
         return costo;
     }
 }
-
