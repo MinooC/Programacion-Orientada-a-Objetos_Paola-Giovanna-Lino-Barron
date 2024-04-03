@@ -39,13 +39,13 @@ class GeneradorArticulo
             boolean esEstreno = random.nextBoolean();
             switch (choice) {
                 case 0:
-                    articulos.add(new Cancion(esEstreno));
+                    articulos.add(new Cancion(estreno));
                     break;
                 case 1:
                     articulos.add(new Videojuego());
                     break;
                 case 2:
-                    articulos.add(new Pelicula(esEstreno));
+                    articulos.add(new Pelicula(estreno));
                     break;
                 case 3:
                     articulos.add(new Libro(generos.get(random.nextInt(generos.size())), esEstreno));

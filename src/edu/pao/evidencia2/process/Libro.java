@@ -20,15 +20,6 @@ public class Libro extends Articulos
         } else if (genero.equals("tecnologia"))
         {
             costo += Costos.COSTO_ADICIONAL_LIBROS_TECNOLOGIA;
-        } else if (genero.equals("ciencia ficcion"))
-        {
-            costo += Costos.COSTO_ADICIONAL_CIENCIA_FICCION;
-        } else if (genero.equals("historia"))
-        {
-            costo += Costos.COSTO_ADICIONAL_HISTORIA;
-        } else if (genero.equals("autoayuda"))
-        {
-            costo += Costos.COSTO_ADICIONAL_AUTOAYUDA;
         }
         if (estreno)
         {
