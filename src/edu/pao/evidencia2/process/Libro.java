@@ -7,7 +7,6 @@ import edu.pao.evidencia2.data.Costos;
  * relacionados con los libros.
  */
 
-
 public class Libro extends Articulos
 {
 

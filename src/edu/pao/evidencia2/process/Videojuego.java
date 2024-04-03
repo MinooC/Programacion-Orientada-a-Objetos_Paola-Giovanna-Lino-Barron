@@ -10,7 +10,7 @@ public class Videojuego extends Articulos
 {
     public Videojuego(String nombre, String tipo, String genero, boolean estreno, int diasConsumidos)
     {
-        super(nombre, tipo, genero, estreno, diasConsumidos);
+        super(nombre, tipo, genero, estreno);
     }
 
     /**

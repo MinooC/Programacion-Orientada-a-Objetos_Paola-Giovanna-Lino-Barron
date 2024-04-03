@@ -1,4 +1,5 @@
 package edu.pao.evidencia2.ui;
+
 /**
  * Esta clase se encarga de direccionar el idioma segun
  * el usuario lo indique.

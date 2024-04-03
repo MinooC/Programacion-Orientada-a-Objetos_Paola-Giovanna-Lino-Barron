@@ -21,7 +21,8 @@ class GeneradorArticulo
     public static final List<String> canciones = new ArrayList<>();
     public static final List<String> generos = new ArrayList<>();
 
-    static {
+    static
+    {
         peliculas.add("Harry Potter");
         peliculas.add("Star Wars");
         peliculas.add("Terminator");

@@ -1,6 +1,7 @@
 package edu.pao.evidencia2.process;
 
 import edu.pao.evidencia2.data.Costos;
+
 /**
  * Hereda de la clase Articulos y es la encargada de los procesos
  * relacionados con las peliculas.

@@ -9,7 +9,7 @@ public class Cancion extends Articulos
 {
     public Cancion(String nombre, String tipo, String genero, boolean estreno, int diasConsumidos)
     {
-        super(nombre, tipo, genero, estreno, diasConsumidos);
+        super(nombre, tipo, genero, estreno);
     }
     /**
      * Calcula el costo final de la cancion.

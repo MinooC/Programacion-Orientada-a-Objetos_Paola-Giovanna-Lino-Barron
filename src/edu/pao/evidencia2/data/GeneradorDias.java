@@ -1,5 +1,6 @@
 package edu.pao.evidencia2.data;
 import java.util.Random;
+
 /**
  * Esta clase se encarga de generar dias para realizar las operaciones.
  */
