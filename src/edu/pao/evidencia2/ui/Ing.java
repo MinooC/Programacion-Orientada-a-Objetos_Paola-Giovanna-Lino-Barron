@@ -1,6 +1,8 @@
 package edu.pao.evidencia2.ui;
-
-
+/**
+ * Esta clase se extiende de Textos y es la encargada
+ * de guardar los textos en ingles.
+ */
 public class Ing extends Textos
 {
     public static String USUARIO = "Enter your username";

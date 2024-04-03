@@ -1,4 +1,8 @@
 package edu.pao.evidencia2.ui;
+/**
+ * Esta clase se extiende de Textos y es la encargada
+ * de guardar los textos en espanol.
+ */
 
 public class Esp extends Textos
 {

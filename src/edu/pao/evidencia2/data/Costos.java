@@ -1,5 +1,12 @@
 package edu.pao.evidencia2.data;
 
+/**
+ * Esta clase es la encarcagda de almacenar las variables
+ * establecidas al proncipio del programa por lo que son
+ * constatntes.
+ */
+
+
 public class Costos
 {
     public static final double COSTO_BASE = 5;

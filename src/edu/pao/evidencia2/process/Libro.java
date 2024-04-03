@@ -2,6 +2,12 @@ package edu.pao.evidencia2.process;
 
 import edu.pao.evidencia2.data.Costos;
 
+/**
+ * Hereda de la clase Articulos y es la encargada de los procesos
+ * relacionados con los libros.
+ */
+
+
 public class Libro extends Articulos
 {
 
@@ -9,7 +15,9 @@ public class Libro extends Articulos
     {
         super(nombre, tipo, genero, estreno);
     }
-
+    /**
+     * Calcula el costo final del libro.
+     */
     @Override
     public double calcularCosto()
     {

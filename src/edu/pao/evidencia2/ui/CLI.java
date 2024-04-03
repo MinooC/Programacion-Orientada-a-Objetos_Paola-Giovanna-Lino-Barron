@@ -1,14 +1,27 @@
 package edu.pao.evidencia2.ui;
 import java.util.Scanner;
 
+/**
+ * Esta clase es la encargada de mostrar las opciones de
+ * la interfaz del programa al usuario.
+ */
+
 public class CLI
 {
-    public static void showMenu(){
+    /**
+     * Primero se muestra el menu de opciones de idioma al
+     * usuiario. Dependiendo de lo que este elija e; programa
+     * estara en español o ingles.
+     */
+
+    public static void showMenu()
+    {
         Textos.escogerIdioma();
         Scanner scanner = new Scanner(System.in);
         int opcionDeIdioma = scanner.nextInt();
 
-        switch (opcionDeIdioma) {
+        switch (opcionDeIdioma)
+        {
             case 1:
                 edu.pao.evidencia2.ui.Textos.setEsp();
                 break;
@@ -19,6 +32,9 @@ public class CLI
                 System.out.println("Opcion no valida, por favor intentelo de nuevo.");
                 System.out.println("Invalid option, please try again.");
                 return;
+            /**
+             * Se le muestra al usuario el espacio para que ingrese su usuario y contrasena.
+             */
         }
         System.out.println(Textos.USUARIO);
         String usuario = scanner.nextLine();
@@ -27,6 +43,9 @@ public class CLI
 
         System.out.println(Textos.MONTO_TOTAL);
         scanner.close();
-
+        /**
+         * Se imprime en pantalla el monto total del proceso y el
+         * scanner se cierra.
+         */
     }
 }

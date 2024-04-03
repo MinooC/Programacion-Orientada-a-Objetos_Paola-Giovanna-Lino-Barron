@@ -1,6 +1,10 @@
 package edu.pao.evidencia2.process;
 
 import edu.pao.evidencia2.data.Costos;
+/**
+ * Hereda de la clase Articulos y es la encargada de los procesos
+ * relacionados con las peliculas.
+ */
 
 public class Pelicula extends Articulos
 {
@@ -8,6 +12,9 @@ public class Pelicula extends Articulos
     {
         super(nombre, tipo, genero, estreno);
     }
+    /**
+     * Calcula el costo final de la película.
+     */
     @Override
     public double calcularCosto()
     {
