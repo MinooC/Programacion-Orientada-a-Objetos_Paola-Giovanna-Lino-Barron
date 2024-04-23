@@ -4,7 +4,6 @@ package edu.pao.Reto11.ui;
  * La clase Eng proporciona textos en inglés para la interfaz de usuario.
  * Extiende la clase Textos y proporciona implementaciones para los métodos abstractos definidos en ella.
  **/
-
 public class Eng extends Textos
 {
     @Override

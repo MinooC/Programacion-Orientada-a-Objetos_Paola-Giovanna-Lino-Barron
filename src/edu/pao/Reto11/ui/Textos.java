@@ -25,7 +25,6 @@ public abstract class Textos
         System.out.println("1. Español");
         System.out.println("2. English");
     }
-
     public static Textos crearTextos(String idioma)
     {
         switch (idioma)

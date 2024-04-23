@@ -4,7 +4,6 @@ package edu.pao.Reto11.ui;
  * La clase Esp proporciona textos en español para la interfaz de usuario.
  * Extiende la clase Textos y proporciona implementaciones para los métodos abstractos definidos en ella.
  */
-
 public class Esp extends Textos
 {
     @Override

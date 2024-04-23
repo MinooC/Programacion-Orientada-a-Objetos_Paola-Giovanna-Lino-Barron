@@ -23,7 +23,6 @@ public class LimpiadorCadena
      * Limpia una lista de cadenas de texto, aplicando el método limpiarCadena()
      * a cada elemento de la lista.
      **/
-
     public static List<String> limpiarCadena(List<String> lineas)
     {
         return lineas.stream()

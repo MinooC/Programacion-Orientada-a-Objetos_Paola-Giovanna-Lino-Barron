@@ -1,5 +1,4 @@
 package edu.pao.Reto11;
-
 import edu.pao.Reto11.ui.CLI;
 
 public class MainReto11
@@ -18,5 +17,4 @@ public class MainReto11
             System.out.println("Error inesperado " + e);
         }
     }
-
 }
