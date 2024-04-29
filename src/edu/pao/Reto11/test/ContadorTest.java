@@ -122,7 +122,8 @@ public class ContadorTest
      */
 
     @Test
-    public void contarPalabrasArchivoVacioPrueba() throws IOException {
+    public void contarPalabrasArchivoVacioPrueba() throws IOException
+    {
         Contador contador = new Contador();
         contador.contarPalabras("archivo_vacio.txt");
         assertTrue(contador.getMapaPalabras().isEmpty());
@@ -133,7 +134,8 @@ public class ContadorTest
      */
 
     @Test
-    public void contarPalabrasArchivoUnaPalabraPrueba() throws IOException {
+    public void contarPalabrasArchivoUnaPalabraPrueba() throws IOException
+    {
         Contador contador = new Contador();
         contador.contarPalabras("archivo_una_palabra.txt");
         assertEquals(1, contador.getMapaPalabras().size());
@@ -145,7 +147,8 @@ public class ContadorTest
      */
 
     @Test
-    public void contarPalabrasArchivoVariasPalabrasTest() throws IOException {
+    public void contarPalabrasArchivoVariasPalabrasTest() throws IOException
+    {
         Contador contador = new Contador();
         contador.contarPalabras("archivo_varias_palabras.txt");
         assertEquals(3, contador.getMapaPalabras().size());
