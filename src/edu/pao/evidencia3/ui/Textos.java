@@ -38,5 +38,4 @@ public abstract class Textos
                 throw new IllegalArgumentException("Idioma no válido");
         }
     }
-
 }

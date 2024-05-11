@@ -93,7 +93,6 @@ public class Tablero
     {
         return celdas[row][col];
     }
-
     public void reiniciarTablero()
     {
         iniciarTablero();

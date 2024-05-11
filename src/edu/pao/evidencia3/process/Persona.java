@@ -2,13 +2,15 @@ package edu.pao.evidencia3.process;
 
 import java.util.Scanner;
 
-public class Persona extends Jugador{
+public class Persona extends Jugador
+{
     public Persona(String nombre, char simbolo) {
         super(nombre, simbolo);
     }
 
     @Override
-    public void realizarMovimiento(Tablero tablero) {
+    public void realizarMovimiento(Tablero tablero)
+    {
         // Lógica de movimiento para el jugador persona
         Scanner scanner = new Scanner(System.in);
         int row, col;

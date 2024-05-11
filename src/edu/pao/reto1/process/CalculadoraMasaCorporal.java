@@ -2,7 +2,7 @@ package edu.pao.reto1.process;
 
 import java.util.Scanner;
 
-/**
+/**      
  * Esta clase sirve para realizar los cálculos que desee operar el usuario.
  **/
 public class CalculadoraMasaCorporal

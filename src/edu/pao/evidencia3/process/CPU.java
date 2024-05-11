@@ -70,7 +70,8 @@ public class CPU extends Jugador
         {
             for (int col = 0; col < tablero.getColumnas(); col++)
             {
-                if (tablero.esMovimientoValido(row, col)) {
+                if (tablero.esMovimientoValido(row, col))
+                {
                     tablero.colocarSimbolo(row, col, simboloJugadorHumano);
                     if (tablero.hayGanador())
                     {
@@ -84,7 +85,6 @@ public class CPU extends Jugador
         }
         return false;
     }
-
 
     private void movimientoDificil(Tablero tablero)
     {
@@ -134,7 +134,8 @@ public class CPU extends Jugador
                     mejorMovimiento = movimiento;
                     alpha = Math.max(alpha, mejorValor);
                 }
-            } else {
+            } else
+            {
                 if (valorMovimiento < mejorValor)
                 {
                     mejorValor = valorMovimiento;

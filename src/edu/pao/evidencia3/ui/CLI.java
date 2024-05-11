@@ -17,7 +17,8 @@ public class CLI
         scanner.nextLine();
 
         String idioma = null;
-        switch (opcionIdioma) {
+        switch (opcionIdioma)
+        {
             case 1:
                 idioma = "Español";
                 break;
@@ -37,6 +38,5 @@ public class CLI
         if (opcion_de_juego = 1){
 
         }
-
     }
 }
