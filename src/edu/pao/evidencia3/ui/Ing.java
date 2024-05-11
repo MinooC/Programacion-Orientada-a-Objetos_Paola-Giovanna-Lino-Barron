@@ -5,24 +5,24 @@ public class Ing extends Textos
     @Override
     public String bienvenida()
     {
-        return null;
+        return "Welcome to Tic Tac Toe, choose your game mode: ";
     }
 
     @Override
     public String opcion_de_juego()
     {
-        return null;
+        return "1. One player \n" + "2. Two players";
     }
 
     @Override
     public String opcion_invalida()
     {
-        return null;
+        return "Invalid option, please try again.";
     }
 
     @Override
     public String ingreso_casilla()
     {
-        return null;
+        return ", enter the row and column for your move (example: 0 1)";
     }
 }

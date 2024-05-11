@@ -1,6 +1,7 @@
 package edu.pao.evidencia3.ui;
 
-public class Chino extends Textos{
+public class Chino extends Textos
+{
     @Override
     public String bienvenida()
     {
@@ -23,6 +24,6 @@ public class Chino extends Textos{
     @Override
     public String ingreso_casilla()
     {
-        return null;
+        return "，输入您的移动的行和列（例如: 0 1):";
     }
 }

@@ -14,7 +14,7 @@ public class Esp extends Textos
 
     @Override
     public String opcion_invalida() {
-        return "Opcion invalida, por favor intente de nuevo.";
+        return "Opción invalida, por favor intente de nuevo.";
     }
 
     @Override

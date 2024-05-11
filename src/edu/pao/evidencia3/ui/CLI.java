@@ -31,7 +31,7 @@ public class CLI
                 System.out.println("Opción inválida");
                 return;
         }
-        edu.paulina_vazquez.evidencia3.ui.Textos textos = Textos.crearTextos(idioma);
+        edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos(idioma);
         System.out.println(textos.bienvenida());
         System.out.println(textos.opcion_de_juego());
 

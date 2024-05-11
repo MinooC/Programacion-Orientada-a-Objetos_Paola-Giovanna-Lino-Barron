@@ -72,7 +72,7 @@ public class CPU extends Jugador
             {
                 if (tablero.esMovimientoValido(row, col))
                 {
-                    tablero.colocarSimbolo(row, col, simboloJugadorHumano);
+                        tablero.colocarSimbolo(row, col, simboloPersona);
                     if (tablero.hayGanador())
                     {
                         tablero.limpiarCasilla(row, col); // Deshacer movimiento
@@ -84,6 +84,42 @@ public class CPU extends Jugador
             }
         }
         return false;
+    }
+
+    // Revisa todas las posibles combinaciones de líneas ganadoras y verificar si la CPU tiene dos símbolos en una línea y la tercera celda está vacía.
+    // Si encuentra tal línea, la CPU coloca su símbolo en esa celda para ganar el juego.
+    public boolean intentarGanar(Tablero tablero)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                // Verificar filas
+                if (tablero.obtenerSimbolo(i, j) == simbolo && tablero.obtenerSimbolo(i, (j + 1) % 3) == simbolo && tablero.obtenerSimbolo(i, (j + 2) % 3) == '-')
+                {
+                    tablero.colocarSimbolo(i, (j + 2) % 3, simbolo);
+                    return true;
+                }
+                // Verificar columnas
+                if (tablero.obtenerSimbolo(j, i) == simbolo && tablero.obtenerSimbolo((j + 1) % 3, i) == simbolo && tablero.obtenerSimbolo((j + 2) % 3, i) == '-')
+                {
+                    tablero.colocarSimbolo((j + 2) % 3, i, simbolo);
+                    return true;
+                }
+            }
+            // Verificar diagonales
+            if (tablero.obtenerSimbolo(i, i) == simbolo && tablero.obtenerSimbolo((i + 1) % 3, (i + 1) % 3) == simbolo && tablero.obtenerSimbolo((i + 2) % 3, (i + 2) % 3) == '-')
+            {
+                tablero.colocarSimbolo((i + 2) % 3, (i + 2) % 3, simbolo);
+                return true;
+            }
+            if (tablero.obtenerSimbolo(i, 2 - i) == simbolo && tablero.obtenerSimbolo((i + 1) % 3, 2 - ((i + 1) % 3)) == simbolo && tablero.obtenerSimbolo((i + 2) % 3, 2 - ((i + 2) % 3)) == '-')
+            {
+                tablero.colocarSimbolo((i + 2) % 3, 2 - ((i + 2) % 3), simbolo);
+                return true;
+            }
+        }
+        return false; // No hay oportunidad de ganar
     }
 
     private void movimientoDificil(Tablero tablero)
