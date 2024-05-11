@@ -21,6 +21,7 @@ public abstract class Textos
         System.out.println("2. English");
         System.out.println("3. 中国人");
     }
+
     public static Textos crearTextos(String idioma)
     {
         /**

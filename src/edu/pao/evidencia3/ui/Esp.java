@@ -2,7 +2,6 @@ package edu.pao.evidencia3.ui;
 
 public class Esp extends Textos
 {
-
     @Override
     public String bienvenida() {
         return "Bienvenido a Tic Tac Toe, elija su modo de juego: ";

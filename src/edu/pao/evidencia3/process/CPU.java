@@ -158,4 +158,3 @@ public class CPU extends Jugador
         FACIL, INTERMEDIO, DIFICIL
     }
 }
-
