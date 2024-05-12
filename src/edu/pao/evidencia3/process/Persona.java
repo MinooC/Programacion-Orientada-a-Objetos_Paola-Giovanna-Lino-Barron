@@ -9,7 +9,6 @@ import java.util.Scanner;
  * implementa la lógica para el movimiento del jugador humano.
  */
 
-
 public class Persona extends Jugador
 {
     public Persona(String nombre, char simbolo, char simboloPersona)
@@ -22,7 +21,7 @@ public class Persona extends Jugador
      *
      * @param tablero El tablero donde se realizará el movimiento.
     */
-    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos(String)
+    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos("");
     @Override
     public void realizarMovimiento(Tablero tablero)
     {
@@ -35,24 +34,20 @@ public class Persona extends Jugador
                 col = scanner.nextInt();
                 if (!tablero.esMovimientoValido(row, col))
                 {
-                    //AUN ME FALTA CAMBIAR ESTO
                     System.out.println(textos.opcion_invalida());
                     continue;
                 }
                 if (!tablero.colocarSimbolo(row, col, simbolo))
                 {
-                    //AUN ME FALTA CAMBIAR ESTO
-                    System.out.println("¡La casilla seleccionada ya está ocupada! Por favor, elige otra.");
+                    System.out.println(textos.casilla_ocupadada());
                     continue;
                 }
                 break;
             } catch (InputMismatchException e)
             {
-                //AUN ME FALTA CAMBIAR ESTO
-                System.out.println("¡Por favor, ingresa números enteros para las filas y columnas!");
+                System.out.println(textos.correcion_de_casilla());
                 scanner.nextLine(); // Limpiar el búfer de entrada
             }
         } while (true);
     }
-
 }

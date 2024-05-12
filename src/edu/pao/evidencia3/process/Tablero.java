@@ -31,7 +31,8 @@ public class Tablero
     }
 
 
-    /** Muestra el tablero actual en la consola. */
+    /** Muestra el tablero actual en la consola.
+     **/
 
     public void mostrarTablero()
     {
@@ -191,7 +192,6 @@ public class Tablero
         return ganador;
     }
 
-
     /**
      * Verifica si hay un ganador en el tablero.
      *
@@ -205,19 +205,20 @@ public class Tablero
         return obtenerGanador() != '-';
     }
 
+    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos("");
     public void mostrarResultado(char simbolo)
     {
         char ganador = obtenerGanador();
         if (ganador != '-')
         {
-            System.out.println(Textos.crearTextos(String.valueOf(ganador)));
+            System.out.println(textos.ganador() + ganador);
             if (ganador == simbolo)
             {
-                System.out.println(Textos.crearTextos(String.valueOf(felicitacion)));
+                System.out.println(textos.felicitacion());
             }
         } else
         {
-            System.out.println("El juego ha terminado en empate.");
+            System.out.println(textos.empate());
         }
     }
 }

@@ -4,7 +4,7 @@ public class MainEvidencia3
 {
     /**
      * Es la encargada activar el menu y,
-     * ademas, de atrapar los errores y mostar un
+     * además, de atrapar los errores y mostar un
      * mensaje ante esta situacion.
      */
     public static void main(String[] arg)

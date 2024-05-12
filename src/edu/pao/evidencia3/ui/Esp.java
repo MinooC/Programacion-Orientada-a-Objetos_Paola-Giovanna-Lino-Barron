@@ -53,4 +53,16 @@ public class Esp extends Textos
     {
         return "El ganador es:";
     }
+    public String tipo_juego()
+    {
+        return "Seleccione el tipo de juego:";
+    }
+    public String un_jugador()
+    {
+        return "Un jugador vs CPU";
+    }
+    public String dos_jugadores()
+    {
+        return "Dos jugadores";
+    }
 }

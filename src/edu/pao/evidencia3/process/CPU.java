@@ -18,13 +18,15 @@ public class CPU extends Jugador
         this.dificultad = dificultad;
         this.simbolo = obtenerSimboloAleatorioExcepto(simbolo, simboloPersona); // Actualiza el símbolo del CPU
     }
-    private char obtenerSimboloAleatorioExcepto(char simboloCPU, char simboloPersona) {
+    private char obtenerSimboloAleatorioExcepto(char simboloCPU, char simboloPersona)
+    {
         // Define un conjunto de símbolos posibles para elegir
         char[] simbolosPosibles = {'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H'};
 
         // Convierte el conjunto de símbolos posibles en una lista para facilitar la manipulación
         List<Character> simbolosLista = new ArrayList<>();
-        for (char simbolo : simbolosPosibles) {
+        for (char simbolo : simbolosPosibles)
+        {
             simbolosLista.add(simbolo);
         }
 
@@ -42,7 +44,6 @@ public class CPU extends Jugador
      *
      * @param tablero El tablero en el que se realizará el movimiento.
      */
-
 
     // Se agrega una variable de instancia para almacenar el nivel de dificultad y ajustar la lógica de movimiento en consecuencia.
     @Override
@@ -116,16 +117,17 @@ public class CPU extends Jugador
      * @return true si se bloqueó un movimiento del jugador humano, false de lo contrario.
      */
 
-
     private boolean intentarBloquear(Tablero tablero, char simboloJugador)
     {
         for (int row = 0; row < tablero.getFilas(); row++)
         {
             for (int col = 0; col < tablero.getColumnas(); col++)
             {
-                if (tablero.esMovimientoValido(row, col)) {
+                if (tablero.esMovimientoValido(row, col))
+                {
                     tablero.colocarSimbolo(row, col, simboloJugador);
-                    if (tablero.hayGanador()) {
+                    if (tablero.hayGanador())
+                    {
                         tablero.limpiarCasilla(row, col);
                         tablero.colocarSimbolo(row, col, simbolo);
                         return true;
@@ -142,9 +144,8 @@ public class CPU extends Jugador
      * @param tablero El tablero en el que se verificarán las posiciones.
      * @return true si la CPU ganó el juego, false de lo contrario.
      */
-
-
-    // Revisa todas las posibles combinaciones de líneas ganadoras y verificar si la CPU tiene dos símbolos en una línea y la tercera celda está vacía.
+    // Revisa todas las posibles combinaciones de líneas ganadoras y verificar si la CPU tiene dos símbolos en una línea y
+    // la tercera celda está vacía.
     // Si encuentra tal línea, la CPU coloca su símbolo en esa celda para ganar el juego.
     public boolean intentarGanar(Tablero tablero)
     {
@@ -182,10 +183,8 @@ public class CPU extends Jugador
 
     /**
      * Implementa una estrategia difícil para la CPU, utilizando el algoritmo Minimax para encontrar el movimiento óptimo.
-     *
      * @param tablero El tablero en el que se realizará el movimiento.
      */
-
 
     private void movimientoDificil(Tablero tablero)
     {
@@ -193,7 +192,8 @@ public class CPU extends Jugador
         tablero.colocarSimbolo(mejorMovimiento[1], mejorMovimiento[2], simbolo);
     }
 
-    // Se utiliza el algoritmo Minimax para encontrar el movimiento óptimo para la CPU, asumiendo que el oponente jugará de manera óptima támbien.
+    // Se utiliza el algoritmo Minimax para encontrar el movimiento óptimo para la CPU,
+    // asumiendo que el oponente jugará de manera óptima támbien.
     private int[] minimax(Tablero tablero, char jugador, int alpha, int beta, boolean maximizando)
     {
         if (tablero.hayGanador())
@@ -260,8 +260,6 @@ public class CPU extends Jugador
     /**
      * Enumeración que representa los niveles de dificultad disponibles para la CPU.
      */
-
-    // Enum para representar los niveles de dificultad
     public enum Dificultad
     {
         FACIL, INTERMEDIO, DIFICIL

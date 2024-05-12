@@ -57,4 +57,19 @@ public class Ing extends Textos
     {
         return "The winner is: ";
     }
+    public String tipo_juego()
+    {
+        return "Select the game type:";
+    }
+
+    public String un_jugador()
+    {
+        return "One player vs CPU";
+    }
+
+    public String dos_jugadores()
+    {
+        return "Two players";
+    }
+
 }

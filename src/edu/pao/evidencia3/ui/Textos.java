@@ -15,6 +15,9 @@ public abstract class Textos
     public abstract String empate();
     public abstract String felicitacion();
     public abstract String ganador();
+    public abstract String tipo_juego();
+    public abstract String un_jugador();
+    public abstract String dos_jugadores();
     public static void escogerIdioma ()
     {
         /**

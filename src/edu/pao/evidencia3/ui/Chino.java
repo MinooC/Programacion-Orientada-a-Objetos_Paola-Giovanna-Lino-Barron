@@ -59,4 +59,19 @@ public class Chino extends Textos
     {
         return "获胜者是：";
     }
+    public String tipo_juego()
+    {
+        return "选择游戏类型：";
+    }
+
+    public String un_jugador()
+    {
+        return "一名玩家对CPU";
+    }
+
+    public String dos_jugadores()
+    {
+        return "两名玩家";
+    }
+
 }
