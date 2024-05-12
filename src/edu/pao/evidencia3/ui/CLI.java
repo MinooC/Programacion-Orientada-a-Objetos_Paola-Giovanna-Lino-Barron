@@ -1,6 +1,9 @@
 package edu.pao.evidencia3.ui;
 
 import java.util.Scanner;
+/**
+ * Muestra el menú de selección de idioma y permite al usuario elegir el idioma deseado.
+ */
 
 public class CLI
 {
@@ -35,9 +38,19 @@ public class CLI
         System.out.println(textos.bienvenida());
         System.out.println(textos.opcion_de_juego());
 
-        if (opcion_de_juego = 1)
-        {
+        int opcionJuego = scanner.nextInt();
 
+        switch (opcionJuego)
+        {
+            case 1:
+                // Lógica para un jugador
+                break;
+            case 2:
+                // Lógica para dos jugadores
+                break;
+            default:
+                System.out.println(textos.opcion_invalida());
+                break;
         }
     }
 }

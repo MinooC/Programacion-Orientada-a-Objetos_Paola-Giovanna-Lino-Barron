@@ -3,7 +3,6 @@ package edu.pao.evidencia3.ui;
 /**
  * Esta clase es la encargada de los textos en español.
  */
-
 public class Esp extends Textos
 {
     @Override

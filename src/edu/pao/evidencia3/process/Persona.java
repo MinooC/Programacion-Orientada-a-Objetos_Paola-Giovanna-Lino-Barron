@@ -4,13 +4,25 @@ import edu.pao.evidencia3.ui.Textos;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Representa un jugador controlado por un humano en el juego de Gato. Hereda de la clase abstracta Jugador e
+ * implementa la lógica para el movimiento del jugador humano.
+ */
+
+
 public class Persona extends Jugador
 {
-    public Persona(String nombre, char simbolo)
+    public Persona(String nombre, char simbolo, char simboloPersona)
     {
-        super(nombre, simbolo);
+        super(nombre, simbolo, simboloPersona); // Llamada al constructor de la superclase
     }
-    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos(String idioma);
+    /**
+     * Método para que el jugador humano realice su movimiento en el tablero. Solicita la entrada de filas y columnas
+     * al usuario para realizar el movimiento, verificando que la celda seleccionada sea válida y no esté ocupada.
+     *
+     * @param tablero El tablero donde se realizará el movimiento.
+    */
+    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos(String)
     @Override
     public void realizarMovimiento(Tablero tablero)
     {

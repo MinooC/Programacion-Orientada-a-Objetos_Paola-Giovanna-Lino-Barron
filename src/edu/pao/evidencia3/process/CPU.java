@@ -3,38 +3,46 @@ package edu.pao.evidencia3.process;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+/** Representa un jugador controlado por la computadora en el juego. La CPU puede ajustar su nivel de dificultad
+ * para proporcionar una experiencia de juego variada.
+ */
+
 public class CPU extends Jugador
 {
     private Dificultad dificultad;
-    private char simboloJugador; // Variable para almacenar el símbolo del jugador humano
 
-    public CPU(String nombre, char simbolo, Dificultad dificultad)
+    public CPU(String nombre, char simbolo, char simboloPersona, Dificultad dificultad)
     {
-        super(nombre, simbolo);
+        super(nombre, simbolo, simboloPersona); // Llama al constructor de la superclase Jugador
         this.dificultad = dificultad;
-
-        char simboloAleatorio = obtenerSimboloAleatorioExcepto(simbolo);
-        this.simbolo = simboloAleatorio;
+        this.simbolo = obtenerSimboloAleatorioExcepto(simbolo, simboloPersona); // Actualiza el símbolo del CPU
     }
-    private char obtenerSimboloAleatorioExcepto(char simboloCPU)
-    {
+    private char obtenerSimboloAleatorioExcepto(char simboloCPU, char simboloPersona) {
         // Define un conjunto de símbolos posibles para elegir
         char[] simbolosPosibles = {'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H'};
 
         // Convierte el conjunto de símbolos posibles en una lista para facilitar la manipulación
         List<Character> simbolosLista = new ArrayList<>();
-        for (char simbolo : simbolosPosibles)
-        {
+        for (char simbolo : simbolosPosibles) {
             simbolosLista.add(simbolo);
         }
 
-        // Elimina el símbolo de la CPU de la lista de símbolos posibles
+        // Elimina el símbolo de la CPU y el símbolo de la persona de la lista de símbolos posibles
         simbolosLista.remove(Character.valueOf(simboloCPU));
+        simbolosLista.remove(Character.valueOf(simboloPersona));
 
         // Elige un símbolo aleatorio de los restantes en la lista
         Random random = new Random();
         return simbolosLista.get(random.nextInt(simbolosLista.size()));
     }
+
+    /**
+     * Realiza el movimiento de la CPU en el tablero, de acuerdo con su nivel de dificultad.
+     *
+     * @param tablero El tablero en el que se realizará el movimiento.
+     */
+
 
     // Se agrega una variable de instancia para almacenar el nivel de dificultad y ajustar la lógica de movimiento en consecuencia.
     @Override
@@ -56,6 +64,13 @@ public class CPU extends Jugador
         }
     }
 
+    /**
+     * Realiza un movimiento aleatorio en el tablero.
+     *
+     * @param tablero El tablero en el que se realizará el movimiento.
+     */
+
+
     private void movimientoFacil(Tablero tablero)
     {
         // Lógica de movimiento fácil
@@ -68,10 +83,18 @@ public class CPU extends Jugador
         } while (!tablero.colocarSimbolo(row, col, simbolo));
     }
 
+    /**
+     * Implementa una estrategia intermedia para la CPU, que intenta bloquear al jugador humano si está a punto de ganar
+     * y también intenta ganar si es posible, de lo contrario realiza un movimiento aleatorio.
+     *
+     * @param tablero El tablero en el que se realizará el movimiento.
+     */
+
+
     private void movimientoIntermedio(Tablero tablero)
     {
         // Bloquear al jugador humano si está a punto de ganar
-        if (intentarBloquear(tablero))
+        if (intentarBloquear(tablero, simboloPersona))
         {
             return;
         }
@@ -85,6 +108,14 @@ public class CPU extends Jugador
         // Si no se puede ganar ni bloquear, realizar un movimiento aleatorio
         movimientoFacil(tablero);
     }
+
+    /**
+     * Intenta bloquear al jugador humano si está a punto de ganar.
+     *
+     * @param tablero El tablero en el que se verificarán las posiciones.
+     * @return true si se bloqueó un movimiento del jugador humano, false de lo contrario.
+     */
+
 
     private boolean intentarBloquear(Tablero tablero, char simboloJugador)
     {
@@ -105,6 +136,13 @@ public class CPU extends Jugador
         }
         return false;
     }
+
+    /** * Intenta ganar el juego si es posible.
+     *
+     * @param tablero El tablero en el que se verificarán las posiciones.
+     * @return true si la CPU ganó el juego, false de lo contrario.
+     */
+
 
     // Revisa todas las posibles combinaciones de líneas ganadoras y verificar si la CPU tiene dos símbolos en una línea y la tercera celda está vacía.
     // Si encuentra tal línea, la CPU coloca su símbolo en esa celda para ganar el juego.
@@ -141,6 +179,13 @@ public class CPU extends Jugador
         }
         return false; // No hay oportunidad de ganar
     }
+
+    /**
+     * Implementa una estrategia difícil para la CPU, utilizando el algoritmo Minimax para encontrar el movimiento óptimo.
+     *
+     * @param tablero El tablero en el que se realizará el movimiento.
+     */
+
 
     private void movimientoDificil(Tablero tablero)
     {
@@ -211,6 +256,10 @@ public class CPU extends Jugador
 
         return new int[] {mejorValor, mejorMovimiento[0], mejorMovimiento[1]};
     }
+
+    /**
+     * Enumeración que representa los niveles de dificultad disponibles para la CPU.
+     */
 
     // Enum para representar los niveles de dificultad
     public enum Dificultad

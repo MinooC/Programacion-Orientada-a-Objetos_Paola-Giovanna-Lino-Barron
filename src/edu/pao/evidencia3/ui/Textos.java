@@ -17,7 +17,6 @@ public abstract class Textos
     public abstract String ganador();
     public static void escogerIdioma ()
     {
-
         /**
          * Se encarga de mostrarle al usuario el menu de
          * idiomas disponibles para el programa.

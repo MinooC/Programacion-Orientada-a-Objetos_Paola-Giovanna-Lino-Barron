@@ -1,17 +1,16 @@
 package edu.pao.evidencia3.process;
 
-
 public abstract class Jugador
 {
     protected String nombre;
     protected char simbolo;
-    protected char simboloHumano;
+    protected char simboloPersona; // Nuevo campo para el símbolo del jugador Persona
 
-    public Jugador(String nombre, char simbolo, char simboloHumano)
+    public Jugador(String nombre, char simbolo, char simboloPersona)
     {
         this.nombre = nombre;
         this.simbolo = simbolo;
-        this.simboloHumano = simboloHumano;
+        this.simboloPersona = simboloPersona; // Asignar el símbolo
     }
 
     public String getNombre()
@@ -22,6 +21,11 @@ public abstract class Jugador
     public char getSimbolo()
     {
         return simbolo;
+    }
+
+    public char getSimboloPersona()
+    {
+        return simboloPersona;
     }
 
     // Método abstracto para que las subclases implementen su propia lógica de juego

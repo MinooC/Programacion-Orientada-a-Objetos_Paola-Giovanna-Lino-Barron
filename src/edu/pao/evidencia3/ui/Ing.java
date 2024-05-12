@@ -3,7 +3,6 @@ package edu.pao.evidencia3.ui;
 /**
  * Esta clase es la encargada de los textos en inglés.
  */
-
 public class Ing extends Textos
 {
     @Override
