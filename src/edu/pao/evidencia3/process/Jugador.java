@@ -5,10 +5,10 @@ public abstract class Jugador
     protected String nombre;
     protected char simbolo;
 
-    public Jugador(String nombre, char simbolo)
+    public Jugador(String nombre, char simboloJugador)
     {
         this.nombre = nombre;
-        this.simbolo = simbolo;
+        this.simbolo = simboloJugador;
     }
 
     public String getNombre()

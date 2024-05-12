@@ -5,7 +5,6 @@ public abstract class Textos
     public abstract String opcion_de_juego();
     public abstract String opcion_invalida();
     public abstract String ingreso_casilla();
-    public abstract String casilla_invalida();
     public static void escogerIdioma ()
     {
 

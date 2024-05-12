@@ -1,5 +1,4 @@
 package edu.pao.evidencia3.process;
-
 import edu.pao.evidencia3.ui.Textos;
 
 import java.util.InputMismatchException;
@@ -8,12 +7,12 @@ import java.util.Scanner;
 public class Persona extends Jugador
 {
    private char simboloPersona;
-
-    public Persona (String nombre, char simbolo, char simboloJugadorHumano)
+    public Persona(String nombre, char simboloJugador, char simboloPersona)
     {
-        super(nombre, simbolo);
+        super(nombre, simboloJugador);
         this.simboloPersona = simboloPersona;
     }
+    edu.pao.evidencia3.ui.Textos textos = Textos
 
     @Override
     public void realizarMovimiento(Tablero tablero)
@@ -28,7 +27,7 @@ public class Persona extends Jugador
                 if (!tablero.esMovimientoValido(row, col))
                 {
                     //AUN ME FALTA CAMBIAR ESTO
-                    System.out.println(textos_);
+                    System.out.println(textos.opcion_invalida());
                     continue;
                 }
                 if (!tablero.colocarSimbolo(row, col, simbolo))

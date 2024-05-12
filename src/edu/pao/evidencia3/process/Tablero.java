@@ -157,4 +157,20 @@ public class Tablero
     {
         return obtenerGanador() != '-';
     }
+    public void mostrarResultado()
+    {
+        char ganador = obtenerGanador();
+        if (ganador != '-')
+        {
+            //Me falta traducir dependiendo del idioma!!!
+            System.out.println("El ganador es: " + ganador);
+            if (ganador == simboloJugador)
+            {
+                System.out.println("¡Felicidades! ¡Has ganado!");
+            }
+        } else {
+            System.out.println("El juego ha terminado en empate.");
+        }
+    }
+
 }

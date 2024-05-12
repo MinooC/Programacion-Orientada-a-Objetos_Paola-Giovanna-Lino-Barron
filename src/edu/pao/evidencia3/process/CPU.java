@@ -72,7 +72,7 @@ public class CPU extends Jugador
             {
                 if (tablero.esMovimientoValido(row, col))
                 {
-                        tablero.colocarSimbolo(row, col, simboloPersona);
+                        tablero.colocarSimbolo(row, col, simboloJugador);
                     if (tablero.hayGanador())
                     {
                         tablero.limpiarCasilla(row, col); // Deshacer movimiento
@@ -137,7 +137,7 @@ public class CPU extends Jugador
             if (ganador == simbolo)
             {
                 return new int[] {1000, 0, 0}; // La CPU gana
-            } else if (ganador == simboloJugadorHumano)
+            } else if (ganador == simboloJugador)
             {
                 return new int[] {-1000, 0, 0}; // El jugador humano gana
             } else {
@@ -160,7 +160,7 @@ public class CPU extends Jugador
         int[] mejorMovimiento = new int[] {0, 0, 0};
         for (int[] movimiento : movimientosDisponibles) {
             tablero.colocarSimbolo(movimiento[0], movimiento[1], jugador);
-            int[] resultado = minimax(tablero, jugador == simbolo ? simboloJugadorHumano : simbolo, alpha, beta, !maximizando);
+            int[] resultado = minimax(tablero, jugador == simbolo ? simboloJugador : simbolo, alpha, beta, !maximizando);
             tablero.limpiarCasilla(movimiento[0], movimiento[1]);
             int valorMovimiento = resultado[0];
             if (maximizando) {
