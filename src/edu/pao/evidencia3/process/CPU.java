@@ -6,11 +6,34 @@ import java.util.Random;
 public class CPU extends Jugador
 {
     private Dificultad dificultad;
+    private char simboloJugador; // Variable para almacenar el símbolo del jugador humano
 
     public CPU(String nombre, char simbolo, Dificultad dificultad)
     {
         super(nombre, simbolo);
         this.dificultad = dificultad;
+
+        char simboloAleatorio = obtenerSimboloAleatorioExcepto(simbolo);
+        this.simbolo = simboloAleatorio;
+    }
+    private char obtenerSimboloAleatorioExcepto(char simboloCPU)
+    {
+        // Define un conjunto de símbolos posibles para elegir
+        char[] simbolosPosibles = {'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H'};
+
+        // Convierte el conjunto de símbolos posibles en una lista para facilitar la manipulación
+        List<Character> simbolosLista = new ArrayList<>();
+        for (char simbolo : simbolosPosibles)
+        {
+            simbolosLista.add(simbolo);
+        }
+
+        // Elimina el símbolo de la CPU de la lista de símbolos posibles
+        simbolosLista.remove(Character.valueOf(simboloCPU));
+
+        // Elige un símbolo aleatorio de los restantes en la lista
+        Random random = new Random();
+        return simbolosLista.get(random.nextInt(simbolosLista.size()));
     }
 
     // Se agrega una variable de instancia para almacenar el nivel de dificultad y ajustar la lógica de movimiento en consecuencia.
@@ -63,23 +86,20 @@ public class CPU extends Jugador
         movimientoFacil(tablero);
     }
 
-    private boolean intentarBloquear(Tablero tablero)
+    private boolean intentarBloquear(Tablero tablero, char simboloJugador)
     {
-        // Buscar si hay una jugada del jugador que pueda resultar en una victoria
         for (int row = 0; row < tablero.getFilas(); row++)
         {
             for (int col = 0; col < tablero.getColumnas(); col++)
             {
-                if (tablero.esMovimientoValido(row, col))
-                {
-                        tablero.colocarSimbolo(row, col, simboloJugador);
-                    if (tablero.hayGanador())
-                    {
-                        tablero.limpiarCasilla(row, col); // Deshacer movimiento
-                        tablero.colocarSimbolo(row, col, simbolo); // Bloquear movimiento
+                if (tablero.esMovimientoValido(row, col)) {
+                    tablero.colocarSimbolo(row, col, simboloJugador);
+                    if (tablero.hayGanador()) {
+                        tablero.limpiarCasilla(row, col);
+                        tablero.colocarSimbolo(row, col, simbolo);
                         return true;
                     }
-                    tablero.limpiarCasilla(row, col); // Deshacer movimiento
+                    tablero.limpiarCasilla(row, col);
                 }
             }
         }
@@ -137,10 +157,11 @@ public class CPU extends Jugador
             if (ganador == simbolo)
             {
                 return new int[] {1000, 0, 0}; // La CPU gana
-            } else if (ganador == simboloJugador)
+            } else if (ganador == jugador)
             {
                 return new int[] {-1000, 0, 0}; // El jugador humano gana
-            } else {
+            } else
+            {
                 return new int[] {0, 0, 0}; // Empate
             }
         }
@@ -158,12 +179,15 @@ public class CPU extends Jugador
 
         int mejorValor = maximizando ? Integer.MIN_VALUE : Integer.MAX_VALUE;
         int[] mejorMovimiento = new int[] {0, 0, 0};
-        for (int[] movimiento : movimientosDisponibles) {
+        for (int[] movimiento : movimientosDisponibles)
+        {
+            char simboloJugador = jugador;
             tablero.colocarSimbolo(movimiento[0], movimiento[1], jugador);
             int[] resultado = minimax(tablero, jugador == simbolo ? simboloJugador : simbolo, alpha, beta, !maximizando);
             tablero.limpiarCasilla(movimiento[0], movimiento[1]);
             int valorMovimiento = resultado[0];
-            if (maximizando) {
+            if (maximizando)
+            {
                 if (valorMovimiento > mejorValor)
                 {
                     mejorValor = valorMovimiento;

@@ -1,10 +1,20 @@
 package edu.pao.evidencia3.ui;
+/**
+ * Esta clase es la encargada de definir los idiomas y
+ * heredar las variables a los mismos.
+ */
+
 public abstract class Textos
 {
     public abstract String bienvenida();
     public abstract String opcion_de_juego();
     public abstract String opcion_invalida();
     public abstract String ingreso_casilla();
+    public abstract String casilla_ocupadada();
+    public abstract String correcion_de_casilla();
+    public abstract String empate();
+    public abstract String felicitacion();
+    public abstract String ganador();
     public static void escogerIdioma ()
     {
 

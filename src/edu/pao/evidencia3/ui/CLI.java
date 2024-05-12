@@ -35,7 +35,8 @@ public class CLI
         System.out.println(textos.bienvenida());
         System.out.println(textos.opcion_de_juego());
 
-        if (opcion_de_juego = 1){
+        if (opcion_de_juego = 1)
+        {
 
         }
     }

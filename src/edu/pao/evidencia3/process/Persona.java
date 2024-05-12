@@ -6,14 +6,11 @@ import java.util.Scanner;
 
 public class Persona extends Jugador
 {
-   private char simboloPersona;
-    public Persona(String nombre, char simboloJugador, char simboloPersona)
+    public Persona(String nombre, char simbolo)
     {
-        super(nombre, simboloJugador);
-        this.simboloPersona = simboloPersona;
+        super(nombre, simbolo);
     }
-    edu.pao.evidencia3.ui.Textos textos = Textos
-
+    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos(String idioma);
     @Override
     public void realizarMovimiento(Tablero tablero)
     {

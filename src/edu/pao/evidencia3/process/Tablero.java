@@ -1,28 +1,22 @@
 package edu.pao.evidencia3.process;
 
-public class Tablero
-{
+public class Tablero {
     private char[][] celdas;
 
-    public Tablero()
-    {
+    public Tablero() {
         celdas = new char[3][3];
         iniciarTablero();
     }
 
-    private void iniciarTablero()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
+    private void iniciarTablero() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 celdas[i][j] = '-';
             }
         }
     }
 
-    public void mostrarTablero()
-    {
+    public void mostrarTablero() {
         System.out.println("  0 1 2");
         for (int i = 0; i < 3; i++) {
             System.out.print(i + " ");
@@ -33,56 +27,43 @@ public class Tablero
         }
     }
 
-    public boolean colocarSimbolo(int row, int col, char symbol)
-    {
-        if (row < 0 || row >= 3 || col < 0 || col >= 3 || celdas[row][col] != '-')
-        {
+    public boolean colocarSimbolo(int row, int col, char symbol) {
+        if (row < 0 || row >= 3 || col < 0 || col >= 3 || celdas[row][col] != '-') {
             return false; // Movimiento inválido
         }
         celdas[row][col] = symbol;
         return true;
     }
 
-    public void limpiarCasilla(int row, int col)
-    {
+    public void limpiarCasilla(int row, int col) {
         celdas[row][col] = '-';
     }
 
-    public boolean verificarGanador(char symbol)
-    {
+    public boolean verificarGanador(char symbol) {
         // Verificar filas y columnas
-        for (int i = 0; i < 3; i++)
-        {
-            if (celdas[i][0] == symbol && celdas[i][1] == symbol && celdas[i][2] == symbol)
-            {
+        for (int i = 0; i < 3; i++) {
+            if (celdas[i][0] == symbol && celdas[i][1] == symbol && celdas[i][2] == symbol) {
                 return true; // Ganador en fila i
             }
-            if (celdas[0][i] == symbol && celdas[1][i] == symbol && celdas[2][i] == symbol)
-            {
+            if (celdas[0][i] == symbol && celdas[1][i] == symbol && celdas[2][i] == symbol) {
                 return true; // Ganador en columna i
             }
         }
         // Verificar diagonales
-        if (celdas[0][0] == symbol && celdas[1][1] == symbol && celdas[2][2] == symbol)
-        {
+        if (celdas[0][0] == symbol && celdas[1][1] == symbol && celdas[2][2] == symbol) {
             return true; // Ganador en diagonal principal
         }
-        if (celdas[0][2] == symbol && celdas[1][1] == symbol && celdas[2][0] == symbol)
-        {
+        if (celdas[0][2] == symbol && celdas[1][1] == symbol && celdas[2][0] == symbol) {
             return true; // Ganador en diagonal secundaria
         }
         return false;
     }
 
-    public boolean tableroLleno()
-    {
+    public boolean tableroLleno() {
         // Comprobar si todas las celdas están ocupadas
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                if (celdas[i][j] == '-')
-                {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (celdas[i][j] == '-') {
                     return false; // Todavía hay celdas vacías
                 }
             }
@@ -90,12 +71,11 @@ public class Tablero
         return true; // Tablero completo (empate)
     }
 
-    public char obtenerSimbolo(int row, int col)
-    {
+    public char obtenerSimbolo(int row, int col) {
         return celdas[row][col];
     }
-    public void reiniciarTablero()
-    {
+
+    public void reiniciarTablero() {
         iniciarTablero();
     }
 
@@ -105,29 +85,24 @@ public class Tablero
     // Si ambas condiciones se cumplen, el método devuelve true, lo que indica que el movimiento es válido.
     // De lo contrario, devuelve false, indicando que el movimiento es inválido y no se puede realizar en el tablero.
 
-    public boolean esMovimientoValido(int row, int col)
-    {
+    public boolean esMovimientoValido(int row, int col) {
         return row >= 0 && row < 3 && col >= 0 && col < 3 && celdas[row][col] == '-';
     }
-    public int getSize()
-    {
+
+    public int getSize() {
         return celdas.length * celdas[0].length;
     }
 
-    public int getFilas()
-    {
+    public int getFilas() {
         return celdas.length;
     }
 
-    public int getColumnas()
-    {
+    public int getColumnas() {
         return celdas[0].length;
     }
 
     // obtenerGanador analiza todas las posibles líneas ganadoras en el tablero y devuelve el símbolo del ganador si lo encuentra, o un guion si no hay ganador.
-
-    public char obtenerGanador()
-    {
+    public char obtenerGanador() {
         char ganador = '-';
         // Verificar filas y columnas
         for (int i = 0; i < 3; i++) {
@@ -153,10 +128,11 @@ public class Tablero
     // Este método simplemente llama al método obtenerGanador() y verifica si el resultado es diferente de un guion.
     // Si obtenerGanador() devuelve un guion, significa que no hay ganador en el tablero, por lo que hayGanador() devuelve false.
     // Si obtenerGanador() devuelve cualquier otro carácter que no sea un guion, significa que hay un ganador en el tablero, por lo que hayGanador() devuelve true.
-    public boolean hayGanador()
-    {
+    public boolean hayGanador() {
         return obtenerGanador() != '-';
     }
+
+
     public void mostrarResultado()
     {
         char ganador = obtenerGanador();
@@ -164,11 +140,12 @@ public class Tablero
         {
             //Me falta traducir dependiendo del idioma!!!
             System.out.println("El ganador es: " + ganador);
-            if (ganador == simboloJugador)
+            if (ganador == simbolo)
             {
                 System.out.println("¡Felicidades! ¡Has ganado!");
             }
-        } else {
+        } else
+        {
             System.out.println("El juego ha terminado en empate.");
         }
     }

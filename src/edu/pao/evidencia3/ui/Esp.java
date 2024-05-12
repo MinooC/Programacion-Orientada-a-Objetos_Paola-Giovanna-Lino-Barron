@@ -1,5 +1,9 @@
 package edu.pao.evidencia3.ui;
 
+/**
+ * Esta clase es la encargada de los textos en español.
+ */
+
 public class Esp extends Textos
 {
     @Override
@@ -20,5 +24,34 @@ public class Esp extends Textos
     @Override
     public String ingreso_casilla() {
         return ", ingresa la fila y columna para tu movimiento (ejemplo: 0 1): ";
+    }
+
+    @Override
+    public String casilla_ocupadada()
+    {
+        return "¡La casilla seleccionada ya está ocupada! Por favor, elige otra.";
+    }
+
+    @Override
+    public String correcion_de_casilla()
+    {
+        return "¡Por favor, ingresa números enteros para las filas y columnas!";
+    }
+
+    @Override
+    public String empate()
+    {
+        return "El juego ha terminado en empate.";
+    }
+
+    @Override
+    public String felicitacion()
+    {
+        return "¡Felicidades! ¡Has ganado!";
+    }
+    @Override
+    public String ganador()
+    {
+        return "El ganador es:";
     }
 }

@@ -1,14 +1,17 @@
 package edu.pao.evidencia3.process;
 
+
 public abstract class Jugador
 {
     protected String nombre;
     protected char simbolo;
+    protected char simboloHumano;
 
-    public Jugador(String nombre, char simboloJugador)
+    public Jugador(String nombre, char simbolo, char simboloHumano)
     {
         this.nombre = nombre;
-        this.simbolo = simboloJugador;
+        this.simbolo = simbolo;
+        this.simboloHumano = simboloHumano;
     }
 
     public String getNombre()
