@@ -18,7 +18,6 @@ public class Persona extends Jugador
     /**
      * Método para que el jugador humano realice su movimiento en el tablero. Solicita la entrada de filas y columnas
      * al usuario para realizar el movimiento, verificando que la celda seleccionada sea válida y no esté ocupada.
-     *
      * @param tablero El tablero donde se realizará el movimiento.
     */
     edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos("");

@@ -57,19 +57,70 @@ public class Ing extends Textos
     {
         return "The winner is: ";
     }
+    @Override
     public String tipo_juego()
     {
         return "Select the game type:";
     }
-
+    @Override
     public String un_jugador()
     {
         return "One player vs CPU";
     }
 
+    @Override
     public String dos_jugadores()
     {
         return "Two players";
     }
+
+    @Override
+    public String menu_dificultad()
+    {
+        return "Choose the CPU difficulty";
+    }
+
+    @Override
+    public String facil()
+    {
+        return "Easy";
+    }
+
+
+    @Override
+    public String intermedia()
+    {
+        return "Intermediate";
+    }
+
+    @Override
+    public String dificil()
+    {
+        return "Hard";
+    }
+
+    @Override
+    public String turno_jugador()
+    {
+        return "It's your turn";
+    }
+
+    @Override
+    public String elegir_simbolo_jugador1()
+    {
+        return "Player 1, choose your symbol from the list of available symbols: ";
+    }
+
+    @Override
+    public String elegir_simbolo_jugador2()
+    {
+        return "Player 2, choose your symbol from the list of available symbols: ";
+    }
+    @Override
+    public String opcion_continuar()
+    {
+        return "Do you want to continue playing? (Y/N): ";
+    }
+
 
 }

@@ -78,4 +78,3 @@ public class SalonDeLaFama
         return jugadores;
     }
 }
-

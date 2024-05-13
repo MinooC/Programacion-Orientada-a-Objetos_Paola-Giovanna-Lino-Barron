@@ -59,19 +59,62 @@ public class Chino extends Textos
     {
         return "获胜者是：";
     }
+    @Override
     public String tipo_juego()
     {
         return "选择游戏类型：";
     }
 
+    @Override
     public String un_jugador()
     {
         return "一名玩家对CPU";
     }
-
+    @Override
     public String dos_jugadores()
     {
         return "两名玩家";
+    }
+    @Override
+    public String menu_dificultad()
+    {
+        return "选择CPU难度：";
+    }
+    @Override
+    public String facil()
+    {
+        return "简单";
+    }
+    @Override
+    public String intermedia()
+    {
+        return "中等";
+    }
+    @Override
+    public String dificil()
+    {
+        return "困难";
+    }
+    @Override
+    public String turno_jugador()
+    {
+        return  "轮到你了";
+    }
+    @Override
+    public String elegir_simbolo_jugador1()
+    {
+        return "玩家1，请从可用符号列表中选择您的符号：";
+    }
+    @Override
+    public String elegir_simbolo_jugador2()
+    {
+        return "玩家2，请从可用符号列表中选择您的符号：";
+    }
+
+    @Override
+    public String opcion_continuar()
+    {
+        return "您想要继续玩吗？（Y/N）：";
     }
 
 }

@@ -17,7 +17,8 @@ public class Tablero
         iniciarTablero();
     }
 
-    /** Inicializa el tablero llenando todas las celdas con '-' para representar que están vacías.
+    /**
+     * Inicializa el tablero llenando todas las celdas con '-' para representar que están vacías.
      */
     private void iniciarTablero()
     {

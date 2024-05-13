@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-/** Representa un jugador controlado por la computadora en el juego. La CPU puede ajustar su nivel de dificultad
+/**
+ * Representa un jugador controlado por la computadora en el juego. La CPU puede ajustar su nivel de dificultad
  * para proporcionar una experiencia de juego variada.
  */
 
@@ -41,7 +42,6 @@ public class CPU extends Jugador
 
     /**
      * Realiza el movimiento de la CPU en el tablero, de acuerdo con su nivel de dificultad.
-     *
      * @param tablero El tablero en el que se realizará el movimiento.
      */
 
@@ -67,10 +67,8 @@ public class CPU extends Jugador
 
     /**
      * Realiza un movimiento aleatorio en el tablero.
-     *
      * @param tablero El tablero en el que se realizará el movimiento.
      */
-
 
     private void movimientoFacil(Tablero tablero)
     {
@@ -87,7 +85,6 @@ public class CPU extends Jugador
     /**
      * Implementa una estrategia intermedia para la CPU, que intenta bloquear al jugador humano si está a punto de ganar
      * y también intenta ganar si es posible, de lo contrario realiza un movimiento aleatorio.
-     *
      * @param tablero El tablero en el que se realizará el movimiento.
      */
 
@@ -112,7 +109,6 @@ public class CPU extends Jugador
 
     /**
      * Intenta bloquear al jugador humano si está a punto de ganar.
-     *
      * @param tablero El tablero en el que se verificarán las posiciones.
      * @return true si se bloqueó un movimiento del jugador humano, false de lo contrario.
      */
@@ -140,12 +136,12 @@ public class CPU extends Jugador
     }
 
     /** * Intenta ganar el juego si es posible.
-     *
      * @param tablero El tablero en el que se verificarán las posiciones.
      * @return true si la CPU ganó el juego, false de lo contrario.
      */
-    // Revisa todas las posibles combinaciones de líneas ganadoras y verificar si la CPU tiene dos símbolos en una línea y
-    // la tercera celda está vacía.
+
+    // Revisa todas las posibles combinaciones de líneas ganadoras
+    // y verificar si la CPU tiene dos símbolos en una línea y la tercera celda está vacía.
     // Si encuentra tal línea, la CPU coloca su símbolo en esa celda para ganar el juego.
     public boolean intentarGanar(Tablero tablero)
     {
@@ -193,7 +189,7 @@ public class CPU extends Jugador
     }
 
     // Se utiliza el algoritmo Minimax para encontrar el movimiento óptimo para la CPU,
-    // asumiendo que el oponente jugará de manera óptima támbien.
+    // asumiendo que el oponente jugará de manera óptima también.
     private int[] minimax(Tablero tablero, char jugador, int alpha, int beta, boolean maximizando)
     {
         if (tablero.hayGanador())

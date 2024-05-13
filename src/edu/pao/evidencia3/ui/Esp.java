@@ -42,7 +42,6 @@ public class Esp extends Textos
     {
         return "El juego ha terminado en empate.";
     }
-
     @Override
     public String felicitacion()
     {
@@ -53,16 +52,59 @@ public class Esp extends Textos
     {
         return "El ganador es:";
     }
+    @Override
     public String tipo_juego()
     {
         return "Seleccione el tipo de juego:";
     }
+    @Override
     public String un_jugador()
     {
         return "Un jugador vs CPU";
     }
+    @Override
     public String dos_jugadores()
     {
         return "Dos jugadores";
     }
+    @Override
+    public String menu_dificultad()
+    {
+        return "Escoja la dificultad del CPU";
+    }
+    @Override
+    public String facil()
+    {
+        return "Fácil";
+    }
+    @Override
+    public String intermedia()
+    {
+        return "Intermedio";
+    }
+    public String dificil()
+    {
+        return "Difícil";
+    }
+    @Override
+    public String turno_jugador()
+    {
+        return "Es su turno";
+    }
+    @Override
+    public String elegir_simbolo_jugador1()
+    {
+        return "Jugador 1, escoja su símbolo de la lista de símbolos disponibles: ";
+    }
+    @Override
+    public String elegir_simbolo_jugador2()
+    {
+        return "Jugador 2, escoja su símbolo de la lista de símbolos disponibles: ";
+    }
+    @Override
+    public String opcion_continuar()
+    {
+        return "¿Desea continuar jugando? (S/N): ";
+    }
+
 }
