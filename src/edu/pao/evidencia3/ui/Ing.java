@@ -12,12 +12,6 @@ public class Ing extends Textos
     }
 
     @Override
-    public String opcion_de_juego()
-    {
-        return "1. One player \n" + "2. Two players";
-    }
-
-    @Override
     public String opcion_invalida()
     {
         return "Invalid option, please try again.";
@@ -28,8 +22,9 @@ public class Ing extends Textos
     {
         return ", enter the row and column for your move (example: 0 1)";
     }
+
     @Override
-    public String casilla_ocupadada()
+    public String casilla_ocupada()
     {
         return "The selected box is already occupied! Please choose another one.";
     }
@@ -37,7 +32,7 @@ public class Ing extends Textos
     @Override
     public String correcion_de_casilla()
     {
-        return "Please enter interger numbers for the rows and columns!";
+        return "Please enter integer numbers for the rows and columns!";
     }
 
     @Override
@@ -63,16 +58,18 @@ public class Ing extends Textos
     {
         return "Player 2 wins";
     }
+
     @Override
-    public String ganador()
-    {
+    public String ganador() {
         return "The winner is: ";
     }
+
     @Override
     public String ganador_cpu()
     {
         return "CPU wins";
     }
+
     @Override
     public String ganador_jugadorsolo()
     {
@@ -84,10 +81,11 @@ public class Ing extends Textos
     {
         return "Select the game type:";
     }
+
     @Override
     public String un_jugador()
     {
-        return "One player vs CPU";
+        return "One player";
     }
 
     @Override
@@ -107,7 +105,6 @@ public class Ing extends Textos
     {
         return "Easy";
     }
-
 
     @Override
     public String intermedia()
@@ -132,6 +129,7 @@ public class Ing extends Textos
     {
         return "It's the CPU's turn";
     }
+
     @Override
     public String elegir_simbolo_jugador1()
     {
@@ -143,6 +141,7 @@ public class Ing extends Textos
     {
         return "Player 2, choose your symbol from the list of available symbols: ";
     }
+
     @Override
     public String elegir_simbolo_jugadorsolo()
     {
@@ -154,6 +153,45 @@ public class Ing extends Textos
     {
         return "Do you want to continue playing? (Y/N): ";
     }
+    @Override
+    public String sigue_intentando()
+    {
+        return "Better luck next time, keep trying.";
+    }
+    @Override
+    public String jugar()
+    {
+        return "Play Tic Tac Toe";
+    }
+
+    @Override
+    public String mostrar_salon_fama()
+    {
+        return "Show Hall of Fame";
+    }
+    @Override
+    public String menu_inicio()
+    {
+        return "Enter the desired option: ";
+    }
+
+    @Override
+    public String salir()
+    {
+        return "Exit the program";
+    }
+
+    @Override
+    public String titulo_salon_fama()
+    {
+        return "Hall of Fame";
+    }
+    @Override
+    public String victorias()
+    {
+        return "Victories: ";
+    }
+
 
 
 }

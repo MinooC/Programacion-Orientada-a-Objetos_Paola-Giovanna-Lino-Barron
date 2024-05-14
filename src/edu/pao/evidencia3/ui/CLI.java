@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static edu.pao.evidencia3.data.SalonDeLaFama.mostrarSalonDeLaFama;
+
 // Este es el punto de entrada del programa. Realiza las siguientes tareas principales:
 //  Muestra un menú para seleccionar el idioma.
 //  Crea un objeto Textos para gestionar los textos en el idioma seleccionado.
@@ -20,10 +22,55 @@ public class CLI
     public static void main(String[] args)
     {
         String idioma = showMenuIdioma();
+        if (idioma == null)
+        {
+            System.out.println("Idioma no válido. Saliendo del programa.");
+            return;
+        }
         Textos textos = Textos.crearTextos(idioma);
+        Tablero tablero = new Tablero(textos);
         System.out.println(textos.bienvenida());
 
-        ejecutarJuego(textos, idioma);
+        int opcionInicio = showMenuInicio(textos);
+        switch (opcionInicio)
+        {
+            case 1:
+                ejecutarJuego(textos, idioma);
+                break;
+            case 2:
+                mostrarSalonDeLaFama(textos);
+                break;
+            case 3:
+                System.out.println(textos.salir());
+                return;
+        }
+    }
+    private static int showMenuInicio(Textos textos)
+    {
+        Scanner scanner = new Scanner(System.in);
+        int opcionInicio = -1;
+
+        while (opcionInicio != 1 && opcionInicio != 2 && opcionInicio != 3)
+        {
+            System.out.println(textos.menu_inicio());
+            System.out.println("1. " + textos.jugar());
+            System.out.println("2. " + textos.mostrar_salon_fama());
+            System.out.println("3. " + textos.salir());
+
+            if (scanner.hasNextInt())
+            {
+                opcionInicio = scanner.nextInt();
+                if (opcionInicio != 1 && opcionInicio != 2 && opcionInicio != 3)
+                {
+                    System.out.println(textos.opcion_invalida());
+                }
+            } else {
+                System.out.println(textos.opcion_invalida());
+                scanner.next(); // Descartar la entrada no válida
+            }
+        }
+
+        return opcionInicio;
     }
 
     /**
@@ -46,6 +93,8 @@ public class CLI
                 return "Chino";
             default:
                 System.out.println("Opción inválida");
+                System.out.println("Invalid option");
+                System.out.println("选项无效");
                 return null;
         }
     }
@@ -64,8 +113,8 @@ public class CLI
 
         {
             System.out.println(textos.tipo_juego());
-            System.out.println("1. " + textos.un_jugador());
-            System.out.println("2. " + textos.dos_jugadores());
+            System.out.println("1. " + textos.dos_jugadores());
+            System.out.println("2. " + textos.un_jugador()  );
 
             if (scanner.hasNextInt())
             {
@@ -91,8 +140,8 @@ public class CLI
     {
         System.out.println(textos.menu_dificultad());
         System.out.println("1. " + textos.facil());
-        System.out.println("2. " + textos.intermedia());
-        System.out.println("3. " + textos.dificil());
+        System.out.println("2. " + textos.dificil());
+        System.out.println("3. " + textos.intermedia());
         int dificultad = scanner.nextInt();
         scanner.nextLine();
 
@@ -152,8 +201,7 @@ public class CLI
         Tablero tablero = new Tablero();
         char simboloJugador1, simboloJugador2;
 
-        do
-        {
+        do {
             System.out.println(textos.elegir_simbolo_jugador1());
             simboloJugador1 = scanner.next().charAt(0);
             System.out.println(textos.elegir_simbolo_jugador2());
@@ -161,8 +209,9 @@ public class CLI
             scanner.nextLine();
         } while (simboloJugador1 == simboloJugador2);
 
-        Jugador jugador1 = new Persona("Jugador 1", simboloJugador1, simboloJugador2);
-        Jugador jugador2 = new Persona("Jugador 2", simboloJugador2, simboloJugador1);
+        String idioma = showMenuIdioma();
+        Jugador jugador1 = new Persona("Jugador 1", simboloJugador1, simboloJugador2, idioma);
+        Jugador jugador2 = new Persona("Jugador 2", simboloJugador2, simboloJugador1, idioma);
 
         tablero.mostrarTablero();
 
@@ -200,7 +249,6 @@ public class CLI
         char simboloJugador;
         List<Character> simbolosPosibles = Arrays.asList('X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H');
 
-        char simboloCPU;
         do
         {
             System.out.println(textos.elegir_simbolo_jugadorsolo());
@@ -208,9 +256,12 @@ public class CLI
             scanner.nextLine();
         } while (!simbolosPosibles.contains(simboloJugador));
 
-        Jugador jugador = new Persona("Jugador", simboloJugador, ' ');
 
+        String idioma = showMenuIdioma(); // Obtener el idioma seleccionado por el usuario
+
+        Jugador jugador = new Persona("Jugador", simboloJugador, ' ', idioma);
         Jugador cpu = new CPU("CPU", ' ', simboloJugador, dificultad);
+
 
         tablero.mostrarTablero();
 
@@ -233,7 +284,7 @@ public class CLI
             if (tablero.hayGanador())
             {
                 System.out.println(textos.ganador_cpu());
-                System.out.println(textos.felicitacion());
+                System.out.println(textos.sigue_intentando());
                 return;
             }
         }

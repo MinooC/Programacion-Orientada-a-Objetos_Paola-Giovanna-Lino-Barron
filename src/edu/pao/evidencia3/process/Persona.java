@@ -11,16 +11,19 @@ import java.util.Scanner;
 
 public class Persona extends Jugador
 {
-    public Persona(String nombre, char simbolo, char simboloPersona)
+    private Textos textos;
+
+    public Persona(String nombre, char simbolo, char simboloPersona, String idioma)
     {
         super(nombre, simbolo, simboloPersona); // Llamada al constructor de la superclase
+        this.textos = Textos.crearTextos(idioma);
     }
+
     /**
      * Método para que el jugador humano realice su movimiento en el tablero. Solicita la entrada de filas y columnas
      * al usuario para realizar el movimiento, verificando que la celda seleccionada sea válida y no esté ocupada.
      * @param tablero El tablero donde se realizará el movimiento.
-    */
-    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos("");
+     */
     @Override
     public void realizarMovimiento(Tablero tablero)
     {
@@ -38,7 +41,7 @@ public class Persona extends Jugador
                 }
                 if (!tablero.colocarSimbolo(row, col, simbolo))
                 {
-                    System.out.println(textos.casilla_ocupadada());
+                    System.out.println(textos.casilla_ocupada());
                     continue;
                 }
                 break;

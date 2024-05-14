@@ -7,10 +7,9 @@ package edu.pao.evidencia3.ui;
 public abstract class Textos
 {
     public abstract String bienvenida();
-    public abstract String opcion_de_juego();
     public abstract String opcion_invalida();
     public abstract String ingreso_casilla();
-    public abstract String casilla_ocupadada();
+    public abstract String casilla_ocupada();
     public abstract String correcion_de_casilla();
     public abstract String empate();
     public abstract String felicitacion();
@@ -32,6 +31,14 @@ public abstract class Textos
     public abstract String elegir_simbolo_jugador2();
     public abstract String elegir_simbolo_jugadorsolo();
     public abstract String opcion_continuar();
+    public abstract String sigue_intentando();
+    public abstract String mostrar_salon_fama();
+    public abstract String menu_inicio();
+    public abstract String jugar();
+    public abstract String salir();
+    public abstract String titulo_salon_fama();
+    public abstract String victorias();
+
     public static void escogerIdioma ()
     {
         /**
@@ -53,10 +60,12 @@ public abstract class Textos
          * Direcciona el idioma escogido por el usuario para
          * mostrar los textos en el idioma correspondiente.
          */
-        switch (idioma){
+
+        switch (idioma)
+        {
             case "Español":
                 return new Esp();
-            case "English":
+            case "Ingles":
                 return new Ing();
             case "Chino":
                 return new Chino();

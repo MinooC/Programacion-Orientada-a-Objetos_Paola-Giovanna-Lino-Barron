@@ -9,6 +9,12 @@ import edu.pao.evidencia3.ui.Textos;
 
 public class Tablero
 {
+    private Textos textos;
+
+    public Tablero(Textos textos)
+    {
+        this.textos = textos;
+    }
     private char[][] celdas;
 
     public Tablero()
@@ -85,32 +91,40 @@ public class Tablero
     {
         // Verificar filas y columnas
         for (int i = 0; i < 3; i++) {
-            if (celdas[i][0] == symbol && celdas[i][1] == symbol && celdas[i][2] == symbol) {
+            if (celdas[i][0] == symbol && celdas[i][1] == symbol && celdas[i][2] == symbol)
+            {
                 return true; // Ganador en fila i
             }
-            if (celdas[0][i] == symbol && celdas[1][i] == symbol && celdas[2][i] == symbol) {
+            if (celdas[0][i] == symbol && celdas[1][i] == symbol && celdas[2][i] == symbol)
+            {
                 return true; // Ganador en columna i
             }
         }
         // Verificar diagonales
-        if (celdas[0][0] == symbol && celdas[1][1] == symbol && celdas[2][2] == symbol) {
+        if (celdas[0][0] == symbol && celdas[1][1] == symbol && celdas[2][2] == symbol)
+        {
             return true; // Ganador en diagonal principal
         }
-        if (celdas[0][2] == symbol && celdas[1][1] == symbol && celdas[2][0] == symbol) {
+        if (celdas[0][2] == symbol && celdas[1][1] == symbol && celdas[2][0] == symbol)
+        {
             return true; // Ganador en diagonal secundaria
         }
         return false;
     }
 
-    /** Verifica si el tablero está lleno (empate).
+    /**
+     * Verifica si el tablero está lleno (empate).
      */
 
     public boolean tableroLleno()
     {
         // Comprobar si todas las celdas están ocupadas
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (celdas[i][j] == '-') {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if (celdas[i][j] == '-')
+                {
                     return false; // Todavía hay celdas vacías
                 }
             }
@@ -213,7 +227,6 @@ public class Tablero
         return obtenerGanador() != '-';
     }
 
-    edu.pao.evidencia3.ui.Textos textos = Textos.crearTextos("");
     public void mostrarResultado(char simbolo)
     {
         char ganador = obtenerGanador();

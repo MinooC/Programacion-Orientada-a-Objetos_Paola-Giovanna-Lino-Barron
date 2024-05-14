@@ -1,13 +1,15 @@
 package edu.pao.evidencia3.data;
 
+import edu.pao.evidencia3.ui.Textos;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Representa el salón de la fama del juego, que mantiene un registro de los mejores jugadores
- * basado en el número de victorias.
- */
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 class JugadorFama
 {
     private String nombre;
@@ -19,24 +21,17 @@ class JugadorFama
         this.victorias = victorias;
     }
 
-    /**
-     * Método para obtener el nombre del jugador
-     */
-
     public String getNombre()
     {
         return nombre;
     }
 
-    /**
-     * Método para obtener el número de victorias del jugador
-     *
-     */
     public int getVictorias()
     {
         return victorias;
     }
 }
+
 public class SalonDeLaFama
 {
     private static final int MAX_JUGADORES = 5;
@@ -47,34 +42,33 @@ public class SalonDeLaFama
         this.jugadores = new ArrayList<>();
     }
 
-    /**
-     * Agrega un jugador al salón de la fama. Si ya hay 5 jugadores, se elimina el último
-     * para dar espacio al nuevo. La lista de jugadores se ordena por número de victorias, de mayor a menor.
-     *
-     * @param jugador El jugador a agregar al salón de la fama.
-     */
-
     public void agregarJugador(JugadorFama jugador)
     {
         if (jugadores.size() < MAX_JUGADORES)
         {
             jugadores.add(jugador);
         } else {
-            // Si ya hay 5 jugadores, se elimina el último para dar espacio al nuevo
             jugadores.remove(MAX_JUGADORES - 1);
             jugadores.add(jugador);
         }
-        // Ordenar la lista por número de victorias (de mayor a menor)vo
         jugadores.sort(Comparator.comparingInt(JugadorFama::getVictorias).reversed());
     }
 
-    /**
-     * Obtiene la lista de jugadores en el salón de la fama.
-     *
-     * @return La lista de jugadores en el salón de la fama.
-     */
     public List<JugadorFama> getJugadores()
     {
         return jugadores;
     }
+    public static void mostrarSalonDeLaFama(Textos textos)
+    {
+        SalonDeLaFama salonDeLaFama = new SalonDeLaFama();
+        List<JugadorFama> jugadores = salonDeLaFama.getJugadores();
+
+        System.out.println(textos.titulo_salon_fama());
+        for (int i = 0; i < jugadores.size(); i++)
+        {
+            JugadorFama jugador = jugadores.get(i);
+            System.out.println((i + 1) + ". " + jugador.getNombre() + " - " + jugador.getVictorias() + " " + textos.victorias());
+        }
+    }
 }
+
