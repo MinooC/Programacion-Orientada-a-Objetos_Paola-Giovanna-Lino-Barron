@@ -15,6 +15,10 @@ public abstract class Textos
     public abstract String empate();
     public abstract String felicitacion();
     public abstract String ganador();
+    public abstract String ganador_jugador1();
+    public abstract String ganador_jugador2();
+    public abstract String ganador_jugadorsolo();
+    public abstract String ganador_cpu();
     public abstract String tipo_juego();
     public abstract String un_jugador();
     public abstract String dos_jugadores();
@@ -22,9 +26,11 @@ public abstract class Textos
     public abstract String facil();
     public abstract String intermedia();
     public abstract String dificil();
-    public abstract String turno_jugador();
+    public abstract String turno_jugadorsolo();
+    public abstract String turno_cpu();
     public abstract String elegir_simbolo_jugador1();
     public abstract String elegir_simbolo_jugador2();
+    public abstract String elegir_simbolo_jugadorsolo();
     public abstract String opcion_continuar();
     public static void escogerIdioma ()
     {

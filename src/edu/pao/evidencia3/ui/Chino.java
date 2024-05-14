@@ -51,13 +51,33 @@ public class Chino extends Textos
     @Override
     public String felicitacion()
     {
-        return "恭喜你，你赢了！";
+        return "恭喜！";
     }
-
     @Override
     public String ganador()
     {
         return "获胜者是：";
+    }
+    @Override
+    public String ganador_jugador1()
+    {
+        return "玩家1赢了";
+    }
+    @Override
+    public String ganador_jugador2()
+    {
+        return "玩家2赢了";
+
+    }
+    @Override
+    public String ganador_jugadorsolo()
+    {
+        return "玩家赢了";
+    }
+    @Override
+    public String ganador_cpu()
+    {
+        return "CPU赢了";
     }
     @Override
     public String tipo_juego()
@@ -96,9 +116,13 @@ public class Chino extends Textos
         return "困难";
     }
     @Override
-    public String turno_jugador()
+    public String turno_jugadorsolo()
     {
-        return  "轮到你了";
+        return "轮到你了";
+    }
+    public String turno_cpu()
+    {
+        return "轮到CPU了";
     }
     @Override
     public String elegir_simbolo_jugador1()
@@ -109,6 +133,12 @@ public class Chino extends Textos
     public String elegir_simbolo_jugador2()
     {
         return "玩家2，请从可用符号列表中选择您的符号：";
+    }
+
+    @Override
+    public String elegir_simbolo_jugadorsolo()
+    {
+        return "玩家，请从可用符号列表中选择您的符号：";
     }
 
     @Override

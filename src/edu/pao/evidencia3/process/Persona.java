@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Representa un jugador controlado por un humano en el juego de Gato. Hereda de la clase abstracta Jugador e
+ * Representa un jugador controlado por un humano en el juego de Gato en caso de haber seleccionado la opción de jugar contra otro jugador humano. Hereda de la clase abstracta Jugador e
  * implementa la lógica para el movimiento del jugador humano.
  */
 

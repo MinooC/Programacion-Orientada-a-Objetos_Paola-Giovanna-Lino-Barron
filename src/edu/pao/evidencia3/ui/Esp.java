@@ -45,12 +45,32 @@ public class Esp extends Textos
     @Override
     public String felicitacion()
     {
-        return "¡Felicidades! ¡Has ganado!";
+        return "¡Felicitaciones!";
     }
     @Override
     public String ganador()
     {
-        return "El ganador es:";
+        return "El ganador es: ";
+    }
+    @Override
+    public String ganador_jugador1()
+    {
+        return "Ganó el jugador 1";
+    }
+    @Override
+    public String ganador_jugador2()
+    {
+        return "Ganó el jugador 2";
+    }
+    @Override
+    public String ganador_jugadorsolo()
+    {
+        return "Ganó el jugador";
+    }
+    @Override
+    public String ganador_cpu()
+    {
+        return "Ganó la CPU";
     }
     @Override
     public String tipo_juego()
@@ -87,7 +107,12 @@ public class Esp extends Textos
         return "Difícil";
     }
     @Override
-    public String turno_jugador()
+    public String turno_cpu()
+    {
+        return "Es el turno de la CPU";
+    }
+    @Override
+    public String turno_jugadorsolo()
     {
         return "Es su turno";
     }
@@ -100,6 +125,11 @@ public class Esp extends Textos
     public String elegir_simbolo_jugador2()
     {
         return "Jugador 2, escoja su símbolo de la lista de símbolos disponibles: ";
+    }
+    @Override
+    public String elegir_simbolo_jugadorsolo()
+    {
+        return "Jugador, escoja su símbolo de la lista de símbolos disponibles: ";
     }
     @Override
     public String opcion_continuar()

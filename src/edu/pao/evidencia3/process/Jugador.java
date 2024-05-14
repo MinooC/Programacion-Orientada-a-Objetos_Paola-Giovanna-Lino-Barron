@@ -18,7 +18,6 @@ public abstract class Jugador
     }
     /**
      * Obtiene el nombre del jugador.
-     *
      * @return El nombre del jugador.
      */
     public String getNombre()

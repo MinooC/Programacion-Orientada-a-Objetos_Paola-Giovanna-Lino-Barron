@@ -49,14 +49,36 @@ public class Ing extends Textos
     @Override
     public String felicitacion()
     {
-        return "Congratulations! You've won!";
+        return "Congratulations!";
     }
 
+    @Override
+    public String ganador_jugador1()
+    {
+        return "Player 1 wins";
+    }
+
+    @Override
+    public String ganador_jugador2()
+    {
+        return "Player 2 wins";
+    }
     @Override
     public String ganador()
     {
         return "The winner is: ";
     }
+    @Override
+    public String ganador_cpu()
+    {
+        return "CPU wins";
+    }
+    @Override
+    public String ganador_jugadorsolo()
+    {
+        return "Player wins";
+    }
+
     @Override
     public String tipo_juego()
     {
@@ -100,11 +122,16 @@ public class Ing extends Textos
     }
 
     @Override
-    public String turno_jugador()
+    public String turno_jugadorsolo()
     {
         return "It's your turn";
     }
 
+    @Override
+    public String turno_cpu()
+    {
+        return "It's the CPU's turn";
+    }
     @Override
     public String elegir_simbolo_jugador1()
     {
@@ -116,6 +143,12 @@ public class Ing extends Textos
     {
         return "Player 2, choose your symbol from the list of available symbols: ";
     }
+    @Override
+    public String elegir_simbolo_jugadorsolo()
+    {
+        return "Player, choose your symbol from the list of available symbols: ";
+    }
+
     @Override
     public String opcion_continuar()
     {

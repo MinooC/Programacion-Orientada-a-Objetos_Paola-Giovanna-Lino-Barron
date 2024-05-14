@@ -105,7 +105,8 @@ public class Tablero
     /** Verifica si el tablero está lleno (empate).
      */
 
-    public boolean tableroLleno() {
+    public boolean tableroLleno()
+    {
         // Comprobar si todas las celdas están ocupadas
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -173,21 +174,26 @@ public class Tablero
     {
         char ganador = '-';
         // Verificar filas y columnas
-        for (int i = 0; i < 3; i++) {
-            if (celdas[i][0] != '-' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2]) {
+        for (int i = 0; i < 3; i++)
+        {
+            if (celdas[i][0] != '-' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2])
+            {
                 ganador = celdas[i][0]; // Ganador en fila i
                 break;
             }
-            if (celdas[0][i] != '-' && celdas[0][i] == celdas[1][i] && celdas[1][i] == celdas[2][i]) {
+            if (celdas[0][i] != '-' && celdas[0][i] == celdas[1][i] && celdas[1][i] == celdas[2][i])
+            {
                 ganador = celdas[0][i]; // Ganador en columna i
                 break;
             }
         }
         // Verificar diagonales
-        if (ganador == '-' && celdas[0][0] != '-' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2]) {
+        if (ganador == '-' && celdas[0][0] != '-' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2])
+        {
             ganador = celdas[0][0]; // Ganador en diagonal principal
         }
-        if (ganador == '-' && celdas[0][2] != '-' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0]) {
+        if (ganador == '-' && celdas[0][2] != '-' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0])
+        {
             ganador = celdas[0][2]; // Ganador en diagonal secundaria
         }
         return ganador;
@@ -202,7 +208,8 @@ public class Tablero
     // Este método simplemente llama al método obtenerGanador() y verifica si el resultado es diferente de un guion.
     // Si obtenerGanador() devuelve un guion, significa que no hay ganador en el tablero, por lo que hayGanador() devuelve false.
     // Si obtenerGanador() devuelve cualquier otro carácter que no sea un guion, significa que hay un ganador en el tablero, por lo que hayGanador() devuelve true.
-    public boolean hayGanador() {
+    public boolean hayGanador()
+    {
         return obtenerGanador() != '-';
     }
 
