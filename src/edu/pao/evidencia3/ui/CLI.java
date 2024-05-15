@@ -17,20 +17,33 @@ import static edu.pao.evidencia3.data.SalonDeLaFama.mostrarSalonDeLaFama;
 //  Imprime un mensaje de bienvenida en el idioma seleccionado.
 //  Llama al método ejecutarJuego para iniciar el juego.
 
+/**
+ * Clase principal para la interfaz de línea de comandos (CLI) del juego. Permite al usuario elegir el idioma,
+ * tipo de juego y dificultad del CPU en caso de jugar en modo "un jugador"
+ */
 public class CLI
 {
+    /**
+     * Método principal que inicia la ejecución del programa.
+     */
     public static void main(String[] args)
     {
+        // Muestra el menú para seleccionar el idioma y almacena el resultado
         String idioma = showMenuIdioma();
         if (idioma == null)
         {
+            // Si el idioma no es válido, muestra un mensaje y sale del programa
             System.out.println("Idioma no válido. Saliendo del programa.");
             return;
         }
+        // Crea un objeto Textos basado en el idioma seleccionado
         Textos textos = Textos.crearTextos(idioma);
+        // Crea un objeto Tablero con los textos correspondientes
         Tablero tablero = new Tablero(textos);
+        // Muestra el mensaje de bienvenida
         System.out.println(textos.bienvenida());
 
+        // Muestra el menú de inicio y almacena la opción seleccionada
         int opcionInicio = showMenuInicio(textos);
         switch (opcionInicio)
         {
@@ -45,6 +58,10 @@ public class CLI
                 return;
         }
     }
+    /**
+     * Muestra el menú de inicio que permite elegir entre tres opciones, mostrar el salón de la fama, empezar a jugar
+     * o salir de la aplicación y retorna la opción seleccionada por el usuario.
+     */
     private static int showMenuInicio(Textos textos)
     {
         Scanner scanner = new Scanner(System.in);
@@ -167,6 +184,7 @@ public class CLI
     private static void ejecutarJuego(Textos textos, String idioma)
     {
         Scanner scanner = new Scanner(System.in);
+        Tablero tablero = new Tablero(textos); // Crear una instancia de Tablero
 
         do
         {
@@ -175,30 +193,30 @@ public class CLI
             switch (opcionJuego)
             {
                 case 1:
-                    ejecutarJuegoContraPersona(scanner, textos);
+                    ejecutarJuegoContraPersona(scanner, textos, idioma, tablero);
                     break;
                 case 2:
                     CPU.Dificultad dificultad = mostrarMenuDificultadCPU(scanner, textos);
                     if (dificultad != null)
                     {
-                        ejecutarJuegoContraCPU(scanner, textos, dificultad);
+                        ejecutarJuegoContraCPU(scanner, textos, dificultad, idioma, tablero); // Pasar tablero como argumento
                     }
                     break;
                 default:
                     System.out.println(textos.opcion_invalida());
                     break;
             }
-        } while (continuarJuego(idioma, scanner, textos));
+        } while (continuarJuego(idioma, scanner, textos, tablero)); // Pasar tablero como argumento
     }
+
 
     /**
      * Este método maneja el juego cuando hay dos jugadores humanos.
      * Controla la secuencia de turnos y determina el ganador.
      */
 
-    private static void ejecutarJuegoContraPersona(Scanner scanner, Textos textos)
+    private static void ejecutarJuegoContraPersona(Scanner scanner, Textos textos, String idioma, Tablero tablero)
     {
-        Tablero tablero = new Tablero();
         char simboloJugador1, simboloJugador2;
 
         do {
@@ -209,7 +227,6 @@ public class CLI
             scanner.nextLine();
         } while (simboloJugador1 == simboloJugador2);
 
-        String idioma = showMenuIdioma();
         Jugador jugador1 = new Persona("Jugador 1", simboloJugador1, simboloJugador2, idioma);
         Jugador jugador2 = new Persona("Jugador 2", simboloJugador2, simboloJugador1, idioma);
 
@@ -243,9 +260,8 @@ public class CLI
      * Este método maneja el juego cuando un jugador humano juega contra la CPU.
      * Controla la secuencia de turnos y determina el ganador.
      */
-    private static void ejecutarJuegoContraCPU(Scanner scanner, Textos textos, CPU.Dificultad dificultad)
+    private static void ejecutarJuegoContraCPU(Scanner scanner, Textos textos, CPU.Dificultad dificultad, String idioma, Tablero tablero)
     {
-        Tablero tablero = new Tablero();
         char simboloJugador;
         List<Character> simbolosPosibles = Arrays.asList('X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H');
 
@@ -257,11 +273,8 @@ public class CLI
         } while (!simbolosPosibles.contains(simboloJugador));
 
 
-        String idioma = showMenuIdioma(); // Obtener el idioma seleccionado por el usuario
-
         Jugador jugador = new Persona("Jugador", simboloJugador, ' ', idioma);
         Jugador cpu = new CPU("CPU", ' ', simboloJugador, dificultad);
-
 
         tablero.mostrarTablero();
 
@@ -294,7 +307,6 @@ public class CLI
             System.out.println(textos.empate());
         }
     }
-
     /**
      * Maneja el movimiento de la CPU.
      */
@@ -317,20 +329,48 @@ public class CLI
     }
 
     /**
-     * Pregunta al usuario si quiere continuar jugando.
+     * Pregunta al usuario si quiere continuar jugando. Si continua, se reinicia el tablero, si no se cierra el programa
      */
 
-    private static boolean continuarJuego(String idioma, Scanner scanner, Textos textos)
+    private static boolean continuarJuego(String idioma, Scanner scanner, Textos textos, Tablero tablero)
     {
         System.out.println(textos.opcion_continuar());
         String continuar = scanner.nextLine();
 
         if (idioma.equalsIgnoreCase("Ingles") || idioma.equalsIgnoreCase("Chino"))
         {
-            return continuar.equalsIgnoreCase("S") || continuar.equalsIgnoreCase("Y");
-        } else
-        {
-            return continuar.equalsIgnoreCase("S");
+            if (continuar.equalsIgnoreCase("S") || continuar.equalsIgnoreCase("Y"))
+            {
+                tablero.reiniciarTablero(); // Reiniciar el tablero si el usuario decide continuar
+                return true;
+            }
+            else
+            {
+                mostrarResumenPartidas(tablero); // Mostrar el resumen de partidas si el usuario decide no continuar
+                return false;
+            }
+        } else {
+            if (continuar.equalsIgnoreCase("S"))
+            {
+                tablero.reiniciarTablero(); // Reiniciar el tablero si el usuario decide continuar
+                return true;
+            }
+            else {
+                mostrarResumenPartidas(tablero);; // Mostrar el resumen de partidas si el usuario decide no continuar
+                return false;
+            }
         }
     }
+    /**
+     * Muestra un resumen de las partidas
+     */
+    private static void mostrarResumenPartidas(Tablero tablero)
+    {
+        System.out.println("Resumen de partidas:");
+        System.out.println("Partidas jugadas: " + tablero.getPartidasJugadas());
+        System.out.println("Partidas ganadas: " + tablero.getPartidasGanadas());
+        System.out.println("Partidas empatadas: " + tablero.getPartidasEmpatadas());
+        System.out.println("Partidas perdidas: " + tablero.getPartidasPerdidas());
+    }
+
 }

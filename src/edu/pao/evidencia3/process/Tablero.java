@@ -2,6 +2,9 @@ package edu.pao.evidencia3.process;
 
 import edu.pao.evidencia3.ui.Textos;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Representa el tablero de juego del Gato. Contiene métodos para inicializar el tablero, mostrarlo en la consola,
  * realizar movimientos, verificar el estado del juego (ganador, empate, etc.) y reiniciar el tablero.
@@ -9,25 +12,23 @@ import edu.pao.evidencia3.ui.Textos;
 
 public class Tablero
 {
+    private char[][] celdas;
     private Textos textos;
+    private Map<String, Integer> estadisticas;
 
     public Tablero(Textos textos)
     {
         this.textos = textos;
-    }
-    private char[][] celdas;
-
-    public Tablero()
-    {
-        celdas = new char[3][3];
         iniciarTablero();
+        gestorPartidas();
     }
-
     /**
      * Inicializa el tablero llenando todas las celdas con '-' para representar que están vacías.
      */
+
     private void iniciarTablero()
     {
+        celdas = new char[3][3];
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
@@ -36,11 +37,9 @@ public class Tablero
             }
         }
     }
-
-
-    /** Muestra el tablero actual en la consola.
+    /**
+     * Muestra el tablero actual en la consola.
      **/
-
     public void mostrarTablero()
     {
         System.out.println("  0 1 2");
@@ -54,11 +53,12 @@ public class Tablero
             System.out.println();
         }
     }
+
     /**
      * Coloca el símbolo especificado en la fila y columna dadas si la celda está vacía.
      *
-     * @param row La fila donde se colocará el símbolo.
-     * @param col La columna donde se colocará el símbolo.
+     * @param row    La fila donde se colocará el símbolo.
+     * @param col    La columna donde se colocará el símbolo.
      * @param symbol El símbolo a colocar en la celda.
      * @return true si el movimiento es válido y se realiza correctamente, false de lo contrario.
      */
@@ -73,10 +73,12 @@ public class Tablero
         return true;
     }
 
-    /** Limpia la celda especificada, colocando '-' para indicar que está vacía.
+    /**
+     * Limpia la celda especificada, colocando '-' para indicar que está vacía.
      */
 
-    public void limpiarCasilla(int row, int col) {
+    public void limpiarCasilla(int row, int col)
+    {
         celdas[row][col] = '-';
     }
 
@@ -84,6 +86,7 @@ public class Tablero
     /**
      * Verifica si el jugador representado por el símbolo dado ha ganado en el tablero actual.
      * * @param symbol El símbolo del jugador a verificar.
+     *
      * @return true si el jugador ha ganado, false de lo contrario.
      */
 
@@ -132,16 +135,20 @@ public class Tablero
         return true; // Tablero completo (empate)
     }
 
-    /** Obtiene el símbolo en la celda especificada por fila y columna.
+    /**
+     * Obtiene el símbolo en la celda especificada por fila y columna.
      */
-    public char obtenerSimbolo(int row, int col) {
+    public char obtenerSimbolo(int row, int col)
+    {
         return celdas[row][col];
     }
 
-    /** Reinicia el tablero, llenándolo nuevamente con celdas vacías.
+    /**
+     * Reinicia el tablero, llenándolo nuevamente con celdas vacías.
      */
 
-    public void reiniciarTablero() {
+    public void reiniciarTablero()
+    {
         iniciarTablero();
     }
 
@@ -165,15 +172,18 @@ public class Tablero
         return row >= 0 && row < 3 && col >= 0 && col < 3 && celdas[row][col] == '-';
     }
 
-    public int getSize() {
+    public int getSize()
+    {
         return celdas.length * celdas[0].length;
     }
 
-    public int getFilas() {
+    public int getFilas()
+    {
         return celdas.length;
     }
 
-    public int getColumnas() {
+    public int getColumnas()
+    {
         return celdas[0].length;
     }
 
@@ -189,25 +199,21 @@ public class Tablero
         char ganador = '-';
         // Verificar filas y columnas
         for (int i = 0; i < 3; i++)
-        {
-            if (celdas[i][0] != '-' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2])
             {
+            if (celdas[i][0] != '-' && celdas[i][0] == celdas[i][1] && celdas[i][1] == celdas[i][2]) {
                 ganador = celdas[i][0]; // Ganador en fila i
                 break;
             }
-            if (celdas[0][i] != '-' && celdas[0][i] == celdas[1][i] && celdas[1][i] == celdas[2][i])
-            {
+            if (celdas[0][i] != '-' && celdas[0][i] == celdas[1][i] && celdas[1][i] == celdas[2][i]) {
                 ganador = celdas[0][i]; // Ganador en columna i
                 break;
             }
         }
         // Verificar diagonales
-        if (ganador == '-' && celdas[0][0] != '-' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2])
-        {
+        if (ganador == '-' && celdas[0][0] != '-' && celdas[0][0] == celdas[1][1] && celdas[1][1] == celdas[2][2]) {
             ganador = celdas[0][0]; // Ganador en diagonal principal
         }
-        if (ganador == '-' && celdas[0][2] != '-' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0])
-        {
+        if (ganador == '-' && celdas[0][2] != '-' && celdas[0][2] == celdas[1][1] && celdas[1][1] == celdas[2][0]) {
             ganador = celdas[0][2]; // Ganador en diagonal secundaria
         }
         return ganador;
@@ -217,7 +223,7 @@ public class Tablero
      * Verifica si hay un ganador en el tablero.
      *
      * @return true si hay un ganador, false si no lo hay.
-    */
+     */
 
     // Este método simplemente llama al método obtenerGanador() y verifica si el resultado es diferente de un guion.
     // Si obtenerGanador() devuelve un guion, significa que no hay ganador en el tablero, por lo que hayGanador() devuelve false.
@@ -237,9 +243,63 @@ public class Tablero
             {
                 System.out.println(textos.felicitacion());
             }
-        } else
-        {
+        } else {
             System.out.println(textos.empate());
         }
     }
+
+
+    /**
+     * Gestiona la lógica de las partidas
+     */
+    public void gestorPartidas()
+    {
+        this.estadisticas = new HashMap<>();
+        // Inicializar las estadísticas
+        estadisticas.put(textos.partidas_jugadas(), 0);
+        estadisticas.put(textos.partidas_ganadas(), 0);
+        estadisticas.put(textos.partidas_empatadas(), 0);
+        estadisticas.put(textos.partidas_perdidas(), 0);
+    }
+
+    public void incrementarPartidasJugadas()
+    {
+        estadisticas.put(textos.partidas_jugadas(), estadisticas.get(textos.partidas_jugadas()) + 1);
+    }
+
+    public void incrementarPartidasGanadas()
+    {
+        estadisticas.put(textos.partidas_ganadas(), estadisticas.get(textos.partidas_ganadas()) + 1);
+    }
+
+    public void incrementarPartidasEmpatadas()
+    {
+        estadisticas.put(textos.partidas_empatadas(), estadisticas.get(textos.partidas_empatadas()) + 1);
+    }
+
+    public void incrementarPartidasPerdidas()
+    {
+        estadisticas.put(textos.partidas_perdidas(), estadisticas.get(textos.partidas_perdidas()) + 1);
+    }
+
+    public int getPartidasJugadas()
+    {
+        return estadisticas.get(textos.partidas_jugadas());
+    }
+
+    public int getPartidasGanadas()
+    {
+        return estadisticas.get(textos.partidas_ganadas());
+    }
+
+    public int getPartidasEmpatadas()
+    {
+        return estadisticas.get(textos.partidas_empatadas());
+    }
+
+    public int getPartidasPerdidas()
+    {
+        return estadisticas.get(textos.partidas_perdidas());
+    }
+
 }

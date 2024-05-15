@@ -38,6 +38,11 @@ public abstract class Textos
     public abstract String salir();
     public abstract String titulo_salon_fama();
     public abstract String victorias();
+    public abstract String resumen_partidas();
+    public abstract String partidas_jugadas();
+    public abstract String partidas_ganadas();
+    public abstract String partidas_empatadas();
+    public abstract String partidas_perdidas();
 
     public static void escogerIdioma ()
     {

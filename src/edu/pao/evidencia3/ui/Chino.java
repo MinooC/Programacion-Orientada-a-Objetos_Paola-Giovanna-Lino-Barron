@@ -169,5 +169,32 @@ public class Chino extends Textos
         return "胜利: ";
     }
 
+    @Override
+    public String partidas_jugadas()
+    {
+        return "赢得的比赛";
+    }
+    @Override
+    public String partidas_empatadas()
+    {
+        return "平局的比赛";
+    }
+    @Override
+    public String partidas_perdidas()
+    {
+        return "输掉的比赛";
+    }
+    @Override
+    public String resumen_partidas()
+    {
+        return "比赛总结：";
+    }
+    @Override
+    public String partidas_ganadas()
+    {
+        return "赢得的比赛: ";
+    }
+
+
 }
 

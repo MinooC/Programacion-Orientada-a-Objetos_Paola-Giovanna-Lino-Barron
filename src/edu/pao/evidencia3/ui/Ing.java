@@ -133,19 +133,19 @@ public class Ing extends Textos
     @Override
     public String elegir_simbolo_jugador1()
     {
-        return "Player 1, choose your symbol from the list of available symbols: ";
+        return "Player 1, choose your symbol from the list of available symbols: 'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H': ";
     }
 
     @Override
     public String elegir_simbolo_jugador2()
     {
-        return "Player 2, choose your symbol from the list of available symbols: ";
+        return "Player 2, choose your symbol from the list of available symbols: 'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H': ";
     }
 
     @Override
     public String elegir_simbolo_jugadorsolo()
     {
-        return "Player, choose your symbol from the list of available symbols: ";
+        return "Player, choose your symbol from the list of available symbols: 'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H': ";
     }
 
     @Override
@@ -180,7 +180,6 @@ public class Ing extends Textos
     {
         return "Exit the program";
     }
-
     @Override
     public String titulo_salon_fama()
     {
@@ -192,6 +191,33 @@ public class Ing extends Textos
         return "Victories: ";
     }
 
+    @Override
+    public String partidas_jugadas()
+    {
+        return "Games won";
+    }
 
+    @Override
+    public String partidas_empatadas()
+    {
+        return "Games drawn";
+    }
+
+    @Override
+    public String partidas_perdidas()
+    {
+        return "Games lost";
+    }
+
+    @Override
+    public String resumen_partidas()
+    {
+        return "Game summary: ";
+    }
+    @Override
+    public String partidas_ganadas()
+    {
+        return "Games won: ";
+    }
 
 }

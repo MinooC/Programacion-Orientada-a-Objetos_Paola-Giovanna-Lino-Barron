@@ -134,13 +134,13 @@ public class Esp extends Textos
     @Override
     public String elegir_simbolo_jugador1()
     {
-        return "Jugador 1, escoja su símbolo de la lista de símbolos disponibles: ";
+        return "Jugador 1, escoja su símbolo de la lista de símbolos disponibles: 'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H': ";
     }
 
     @Override
     public String elegir_simbolo_jugador2()
     {
-        return "Jugador 2, escoja su símbolo de la lista de símbolos disponibles: ";
+        return "Jugador 2, escoja su símbolo de la lista de símbolos disponibles: 'X', 'O', '@', '?', '*', '$', '#', 'A', 'G', 'H': ";
     }
 
     @Override
@@ -189,5 +189,29 @@ public class Esp extends Textos
     {
         return "Victorias: ";
     }
-
+    @Override
+    public String partidas_jugadas()
+    {
+        return "Partidas ganadas";
+    }
+    @Override
+    public String partidas_empatadas()
+    {
+        return "Partidas empatadas";
+    }
+    @Override
+    public String partidas_perdidas()
+    {
+        return "Partidas perdidas";
+    }
+    @Override
+    public String resumen_partidas()
+    {
+        return "Resumen de partidas: ";
+    }
+    @Override
+    public String partidas_ganadas()
+    {
+        return "Partidas ganadas: ";
+    }
 }
